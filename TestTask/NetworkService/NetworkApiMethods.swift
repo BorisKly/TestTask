@@ -1,5 +1,5 @@
 //
-//  ApiEndpoint.swift
+//  NetworkApiMethods.swift
 //  TestTask
 //
 //  Created by Borys Klykavka on 24.09.2024.
@@ -7,17 +7,15 @@
 
 import Foundation
 
-
-enum APIEndpoints: String, CaseIterable {
+enum NetworkApiMethods: String {
     
     case users = "users"
+    case positions = "positions"
+//    case airPollution = "air_pollution"
     
     var path: String {
-        let generalPath = #"/v1/"#
+        let generalPath = #"/api/v1/"#
         return generalPath+self.rawValue
     }
-
+    
 }
-
-
-

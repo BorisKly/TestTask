@@ -6,7 +6,6 @@
 //
 
 import Foundation
-https://frontend-test-assignment-api.abz.agency/api/v1/users?page=2&count=10
 
 import Foundation
 
@@ -20,86 +19,150 @@ enum NetworkError: Error {
 
 class NetworkService {
     
-    private let scheme = "https"
-    private let host = "frontend-test-assignment-api.abz.agency"
-//    private let apiKey = ConfigValues.get().AccessKeys.apiAccessKey
-    
-    
+    let scheme = "https"
+    let host = "frontend-test-assignment-api.abz.agency"
+        
     public static let shared = NetworkService()
     private init() {}
     
-    private func formatComponents(apiEndpoint: APIEndpoints) -> URLComponents{
+    private func getHeader() -> [String: String] {
+        var header: [String: String] = ["Content-Type": "application/json"]
+        return header
+    }
+    
+    private func formUrl(endpoint: NetworkApiMethods,
+                         settings: [String: Any]? = nil,
+                         data: [String: Any]? = nil) -> String {
+        
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
-        components.path = apiEndpoint.path
-        return components
-    }
-    
-    private func formatQueryItems(apiEndpoint: APIEndpoints,
-                                  page: String? = nil,
-                                  count: String? = nil
-                                  ) -> [URLQueryItem] {        
-        switch apiEndpoint {
-        case .users:
-            queryItems.append(URLQueryItem(page: page, count: count));
-        return queryItems
-    }
-    
-    func sendRequest(apiEndpount: APIEndpoints,
-                     currency: String? = nil,
-                     fromCurrency: String? = nil,
-                     toCurrency: String? = nil,
-                     amount: String? = nil,
-                     weight: String? = nil,
-                     startDate: String? = nil,
-                     endDate: String? = nil,
-                     completion: @escaping (Result<Any, Error>) -> Void) {
-        
-        var components = formatComponents(apiEndpoint:apiEndpount)
-        let quertyItems = formatQueryItems(apiEndpoint: .convert,
-                                           currency: currency,
-                                           fromCurrency:fromCurrency,
-                                           toCurrency: toCurrency,
-                                           amount: amount,
-                                           weight: weight,
-                                           startDate: startDate,
-                                           endDate: endDate)
-        components.queryItems = quertyItems
+        components.path = endpoint.path
 
-        guard let url = components.url else {
+        var queryParams = data?["queryParams"] as? [String: String] ?? [:]
+        components.queryItems = queryParams.map { URLQueryItem(name: $0.key, value: $0.value) }
+
+        return components.url?.absoluteString ?? ""
+    }
+    
+    private func sendRequest(method: String,
+                             url: String,
+                             headers: [String: String]? = nil,
+                             body: Any? = nil,
+                             isImageUpload: Bool = false,
+                             completion: @escaping (Result<Any, Error>) -> Void) {
+        
+        guard let url = URL(string: url) else {
             completion(.failure(NetworkError.invalidUrl))
             return
         }
-        print(url)
         
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+        request.httpMethod = method
+        request.allHTTPHeaderFields = headers ?? getHeader()
+        
+        
+        print(request)
+        
+        if method != "GET" {
+            if isImageUpload {
+                request.httpBody = body as? Data
+            } else if let body = body {
+                request.httpBody = try? JSONSerialization.data(withJSONObject: body)
+            }
+        }
+        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
             if let error = error {
                 completion(.failure(error))
                 return
             }
+            
             guard let httpResponse = response as? HTTPURLResponse else {
-                 completion(.failure(NetworkError.invalidResponse))
+                completion(.failure(NetworkError.invalidResponse))
                 return
             }
+            
             let contentType = httpResponse.allHeaderFields["Content-Type"] as? String ?? ""
-               
+            
             if contentType.contains("application/json"), let data = data {
-                   do {
-                       let json = try JSONSerialization.jsonObject(with: data, options: [])
-                       if (200...299).contains(httpResponse.statusCode) {
-                           completion(.success(json))
-                       } else {
-                           completion(.failure(NetworkError.serverError(json)))
-                       }
-                   } catch {
-                       completion(.failure(NetworkError.invalidJson))
-                   }
-               } else {
-                   completion(.failure(NetworkError.unsupportedContentType))
-               }
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    if (200...299).contains(httpResponse.statusCode) {
+                        completion(.success(json))
+                    } else {
+                        completion(.failure(NetworkError.serverError(json)))
+                    }
+                } catch {
+                    completion(.failure(NetworkError.invalidJson))
+                }
+            } else {
+                completion(.failure(NetworkError.unsupportedContentType))
+            }
         }
         task.resume()
     }
+    
+    private func POST(url: String,
+                      headers: [String: String]? = nil,
+                      body: Any? = nil,
+                      isImageUpload: Bool = false,
+                      completion: @escaping (Result<Any, Error>) -> Void) {
+        sendRequest(method: "POST",
+                    url: url,
+                    headers: headers,
+                    body: body,
+                    isImageUpload: isImageUpload,
+                    completion: completion)
+    }
+    
+    private func GET(url: String,
+                     headers: [String: String]? = nil,
+                     completion: @escaping (Result<Any, Error>) -> Void) {
+        sendRequest(method: "GET",
+                    url: url,
+                    headers: headers,
+                    body: nil,
+                    isImageUpload: false,
+                    completion: completion)
+    }
+    
+    private func PUT(url: String,
+                     headers: [String: String]? = nil,
+                     body: Any? = nil,
+                     completion: @escaping (Result<Any, Error>) -> Void) {
+        sendRequest(method: "PUT",
+                    url: url,
+                    headers: headers,
+                    body: body,
+                    isImageUpload: false,
+                    completion: completion)
+    }
+    
+    private func DELETE(url: String,
+                        headers: [String: String]? = nil,
+                        body: Any? = nil,
+                        completion: @escaping (Result<Any, Error>) -> Void) {
+        sendRequest(method: "DELETE",
+                    url: url,
+                    headers: headers,
+                    body: body,
+                    isImageUpload: false,
+                    completion: completion)
+    }
+    
+    func getUsers(data: [String: Any]?, settings: [String: Any]?, completion: @escaping (Result<Any, Error>) -> Void) {
+        let url = formUrl(endpoint: .users, settings: settings, data: data)
+        let headers = getHeader()
+        GET(url: url, headers: headers, completion: completion)
+    }
+    
+    func getPositions (completion: @escaping (Result<Any, Error>) -> Void) {
+        let url = formUrl(endpoint: .positions, settings: nil, data: nil)
+        let headers = getHeader()
+        GET(url: url, headers: headers, completion: completion)
+    }
+    
 }
+

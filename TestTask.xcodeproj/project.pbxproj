@@ -16,11 +16,19 @@
 		E4712AD62CA2945F004437E4 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AD52CA2945F004437E4 /* ConnectionView.swift */; };
 		E4712AD92CA29612004437E4 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AD82CA29612004437E4 /* NetworkMonitor.swift */; };
 		E4712ADB2CA2971D004437E4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712ADA2CA2971D004437E4 /* MainView.swift */; };
-		E4712AE02CA29E74004437E4 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712ADF2CA29E74004437E4 /* UsersView.swift */; };
+		E4712AE02CA29E74004437E4 /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712ADF2CA29E74004437E4 /* UsersListView.swift */; };
 		E4712AE32CA29EBC004437E4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AE22CA29EBC004437E4 /* SignUpView.swift */; };
-		E4712AEA2CA2A25A004437E4 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AE92CA2A25A004437E4 /* UserView.swift */; };
 		E4712AEC2CA2A2C0004437E4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AEB2CA2A2C0004437E4 /* NetworkService.swift */; };
-		E4712AEE2CA2A3AF004437E4 /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AED2CA2A3AF004437E4 /* ApiEndpoint.swift */; };
+		E4712AF02CA2AA85004437E4 /* UsersResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AEF2CA2AA85004437E4 /* UsersResponseData.swift */; };
+		E4712AF42CA2B17E004437E4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AF32CA2B17E004437E4 /* User.swift */; };
+		E4712AF62CA2C25D004437E4 /* NetworkApiMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AF52CA2C25D004437E4 /* NetworkApiMethods.swift */; };
+		E4712AF82CA2C88C004437E4 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AF72CA2C88C004437E4 /* UserView.swift */; };
+		E4712AFA2CA2CFF7004437E4 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AF92CA2CFF7004437E4 /* UserDetailView.swift */; };
+		E4712AFD2CA2DC71004437E4 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AFC2CA2DC71004437E4 /* HeaderView.swift */; };
+		E4712B002CA2DF89004437E4 /* PositionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AFF2CA2DF89004437E4 /* PositionsView.swift */; };
+		E4712B022CA2E340004437E4 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712B012CA2E340004437E4 /* RadioButton.swift */; };
+		E4712B042CA2E6E2004437E4 /* PositionsResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712B032CA2E6E2004437E4 /* PositionsResponseData.swift */; };
+		E4712B062CA2EBCE004437E4 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712B052CA2EBCE004437E4 /* SignUpViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,11 +42,19 @@
 		E4712AD52CA2945F004437E4 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
 		E4712AD82CA29612004437E4 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		E4712ADA2CA2971D004437E4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		E4712ADF2CA29E74004437E4 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
+		E4712ADF2CA29E74004437E4 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 		E4712AE22CA29EBC004437E4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		E4712AE92CA2A25A004437E4 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		E4712AEB2CA2A2C0004437E4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		E4712AED2CA2A3AF004437E4 /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
+		E4712AEF2CA2AA85004437E4 /* UsersResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponseData.swift; sourceTree = "<group>"; };
+		E4712AF32CA2B17E004437E4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E4712AF52CA2C25D004437E4 /* NetworkApiMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkApiMethods.swift; sourceTree = "<group>"; };
+		E4712AF72CA2C88C004437E4 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		E4712AF92CA2CFF7004437E4 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
+		E4712AFC2CA2DC71004437E4 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		E4712AFF2CA2DF89004437E4 /* PositionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsView.swift; sourceTree = "<group>"; };
+		E4712B012CA2E340004437E4 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		E4712B032CA2E6E2004437E4 /* PositionsResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsResponseData.swift; sourceTree = "<group>"; };
+		E4712B052CA2EBCE004437E4 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +87,7 @@
 		E4712ABB2CA28BD1004437E4 /* TestTask */ = {
 			isa = PBXGroup;
 			children = (
+				E4712AFB2CA2DC5D004437E4 /* HeaderView */,
 				E4712ACB2CA28CDF004437E4 /* NetworkService */,
 				E4712ACA2CA28CD6004437E4 /* App */,
 				E4712AE72CA2A1EF004437E4 /* MainView */,
@@ -108,7 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				E4712AEB2CA2A2C0004437E4 /* NetworkService.swift */,
-				E4712AED2CA2A3AF004437E4 /* ApiEndpoint.swift */,
+				E4712AEF2CA2AA85004437E4 /* UsersResponseData.swift */,
+				E4712AF52CA2C25D004437E4 /* NetworkApiMethods.swift */,
+				E4712B032CA2E6E2004437E4 /* PositionsResponseData.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -171,8 +190,10 @@
 		E4712ADE2CA29E68004437E4 /* UsersView */ = {
 			isa = PBXGroup;
 			children = (
-				E4712ADF2CA29E74004437E4 /* UsersView.swift */,
-				E4712AE82CA2A248004437E4 /* User */,
+				E4712ADF2CA29E74004437E4 /* UsersListView.swift */,
+				E4712AF32CA2B17E004437E4 /* User.swift */,
+				E4712AF72CA2C88C004437E4 /* UserView.swift */,
+				E4712AF92CA2CFF7004437E4 /* UserDetailView.swift */,
 			);
 			path = UsersView;
 			sourceTree = "<group>";
@@ -180,7 +201,9 @@
 		E4712AE12CA29EAB004437E4 /* SignUpView */ = {
 			isa = PBXGroup;
 			children = (
+				E4712B052CA2EBCE004437E4 /* SignUpViewModel.swift */,
 				E4712AE22CA29EBC004437E4 /* SignUpView.swift */,
+				E4712AFE2CA2DF74004437E4 /* PositionsView */,
 			);
 			path = SignUpView;
 			sourceTree = "<group>";
@@ -193,12 +216,21 @@
 			path = MainView;
 			sourceTree = "<group>";
 		};
-		E4712AE82CA2A248004437E4 /* User */ = {
+		E4712AFB2CA2DC5D004437E4 /* HeaderView */ = {
 			isa = PBXGroup;
 			children = (
-				E4712AE92CA2A25A004437E4 /* UserView.swift */,
+				E4712AFC2CA2DC71004437E4 /* HeaderView.swift */,
 			);
-			path = User;
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		E4712AFE2CA2DF74004437E4 /* PositionsView */ = {
+			isa = PBXGroup;
+			children = (
+				E4712AFF2CA2DF89004437E4 /* PositionsView.swift */,
+				E4712B012CA2E340004437E4 /* RadioButton.swift */,
+			);
+			path = PositionsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,17 +304,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4712AEC2CA2A2C0004437E4 /* NetworkService.swift in Sources */,
+				E4712AF02CA2AA85004437E4 /* UsersResponseData.swift in Sources */,
+				E4712B062CA2EBCE004437E4 /* SignUpViewModel.swift in Sources */,
+				E4712B002CA2DF89004437E4 /* PositionsView.swift in Sources */,
 				E4712ABF2CA28BD1004437E4 /* ContentView.swift in Sources */,
 				E4712ADB2CA2971D004437E4 /* MainView.swift in Sources */,
+				E4712AF82CA2C88C004437E4 /* UserView.swift in Sources */,
 				E4712AD92CA29612004437E4 /* NetworkMonitor.swift in Sources */,
+				E4712AF42CA2B17E004437E4 /* User.swift in Sources */,
 				E4712ABD2CA28BD1004437E4 /* TestTaskApp.swift in Sources */,
+				E4712B022CA2E340004437E4 /* RadioButton.swift in Sources */,
+				E4712AF62CA2C25D004437E4 /* NetworkApiMethods.swift in Sources */,
+				E4712B042CA2E6E2004437E4 /* PositionsResponseData.swift in Sources */,
 				E4712ACE2CA28E75004437E4 /* SplashScreenView.swift in Sources */,
 				E4712AD12CA29341004437E4 /* Button+.swift in Sources */,
 				E4712AD62CA2945F004437E4 /* ConnectionView.swift in Sources */,
-				E4712AEA2CA2A25A004437E4 /* UserView.swift in Sources */,
 				E4712AE32CA29EBC004437E4 /* SignUpView.swift in Sources */,
-				E4712AE02CA29E74004437E4 /* UsersView.swift in Sources */,
-				E4712AEE2CA2A3AF004437E4 /* ApiEndpoint.swift in Sources */,
+				E4712AFA2CA2CFF7004437E4 /* UserDetailView.swift in Sources */,
+				E4712AE02CA29E74004437E4 /* UsersListView.swift in Sources */,
+				E4712AFD2CA2DC71004437E4 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

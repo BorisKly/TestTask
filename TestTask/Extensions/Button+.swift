@@ -17,4 +17,8 @@ extension Button {
             .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
             .animation(.easeInOut(duration: 0.2), value: isPressed)
     }
+    func radioButton() -> some View {
+        self
+          
+    }
 }
