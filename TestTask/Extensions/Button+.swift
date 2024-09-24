@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct Button_: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+extension Button {
+    func customStyle(isPressed: Bool, isDisabled: Bool) -> some View {
+        self
+            .padding()
+            .background(isPressed ? Color.gray : (isDisabled ? Color.gray.opacity(0.5) : Color.blue))
+            .foregroundColor(.white)
+            .cornerRadius(20)
+            .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
+            .animation(.easeInOut(duration: 0.2), value: isPressed)
     }
-}
-
-#Preview {
-    Button_()
 }
