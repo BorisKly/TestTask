@@ -12,6 +12,15 @@
 		E4712AC12CA28BD2004437E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4712AC02CA28BD2004437E4 /* Assets.xcassets */; };
 		E4712AC42CA28BD2004437E4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4712AC32CA28BD2004437E4 /* Preview Assets.xcassets */; };
 		E4712ACE2CA28E75004437E4 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712ACD2CA28E75004437E4 /* SplashScreenView.swift */; };
+		E4712AD12CA29341004437E4 /* Button+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AD02CA29341004437E4 /* Button+.swift */; };
+		E4712AD62CA2945F004437E4 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AD52CA2945F004437E4 /* ConnectionView.swift */; };
+		E4712AD92CA29612004437E4 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AD82CA29612004437E4 /* NetworkMonitor.swift */; };
+		E4712ADB2CA2971D004437E4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712ADA2CA2971D004437E4 /* MainView.swift */; };
+		E4712AE02CA29E74004437E4 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712ADF2CA29E74004437E4 /* UsersView.swift */; };
+		E4712AE32CA29EBC004437E4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AE22CA29EBC004437E4 /* SignUpView.swift */; };
+		E4712AEA2CA2A25A004437E4 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AE92CA2A25A004437E4 /* UserView.swift */; };
+		E4712AEC2CA2A2C0004437E4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AEB2CA2A2C0004437E4 /* NetworkService.swift */; };
+		E4712AEE2CA2A3AF004437E4 /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712AED2CA2A3AF004437E4 /* ApiEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +30,15 @@
 		E4712AC02CA28BD2004437E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4712AC32CA28BD2004437E4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E4712ACD2CA28E75004437E4 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		E4712AD02CA29341004437E4 /* Button+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+.swift"; sourceTree = "<group>"; };
+		E4712AD52CA2945F004437E4 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
+		E4712AD82CA29612004437E4 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		E4712ADA2CA2971D004437E4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		E4712ADF2CA29E74004437E4 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
+		E4712AE22CA29EBC004437E4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		E4712AE92CA2A25A004437E4 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		E4712AEB2CA2A2C0004437E4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E4712AED2CA2A3AF004437E4 /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +71,16 @@
 		E4712ABB2CA28BD1004437E4 /* TestTask */ = {
 			isa = PBXGroup;
 			children = (
-				E4712ACC2CA28E64004437E4 /* Views */,
 				E4712ACB2CA28CDF004437E4 /* NetworkService */,
 				E4712ACA2CA28CD6004437E4 /* App */,
+				E4712AE72CA2A1EF004437E4 /* MainView */,
+				E4712ADD2CA29D48004437E4 /* ConnectionView */,
+				E4712ADE2CA29E68004437E4 /* UsersView */,
+				E4712AE12CA29EAB004437E4 /* SignUpView */,
+				E4712ADC2CA29D26004437E4 /* SplashView */,
+				E4712ACF2CA29328004437E4 /* Extensions */,
+				E4712AD72CA295F8004437E4 /* Utils */,
+				E4712AD42CA293EF004437E4 /* Assets */,
 				E4712AC02CA28BD2004437E4 /* Assets.xcassets */,
 				E4712AC22CA28BD2004437E4 /* Preview Content */,
 			);
@@ -74,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				E4712ABC2CA28BD1004437E4 /* TestTaskApp.swift */,
+				E4712ABE2CA28BD1004437E4 /* ContentView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -81,17 +107,98 @@
 		E4712ACB2CA28CDF004437E4 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				E4712AEB2CA2A2C0004437E4 /* NetworkService.swift */,
+				E4712AED2CA2A3AF004437E4 /* ApiEndpoint.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
 		};
-		E4712ACC2CA28E64004437E4 /* Views */ = {
+		E4712ACF2CA29328004437E4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E4712AD02CA29341004437E4 /* Button+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E4712AD22CA29358004437E4 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		E4712AD32CA29360004437E4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E4712AD42CA293EF004437E4 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E4712AD22CA29358004437E4 /* Colors */,
+				E4712AD32CA29360004437E4 /* Fonts */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E4712AD72CA295F8004437E4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E4712AD82CA29612004437E4 /* NetworkMonitor.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E4712ADC2CA29D26004437E4 /* SplashView */ = {
 			isa = PBXGroup;
 			children = (
 				E4712ACD2CA28E75004437E4 /* SplashScreenView.swift */,
-				E4712ABE2CA28BD1004437E4 /* ContentView.swift */,
 			);
-			path = Views;
+			path = SplashView;
+			sourceTree = "<group>";
+		};
+		E4712ADD2CA29D48004437E4 /* ConnectionView */ = {
+			isa = PBXGroup;
+			children = (
+				E4712AD52CA2945F004437E4 /* ConnectionView.swift */,
+			);
+			path = ConnectionView;
+			sourceTree = "<group>";
+		};
+		E4712ADE2CA29E68004437E4 /* UsersView */ = {
+			isa = PBXGroup;
+			children = (
+				E4712ADF2CA29E74004437E4 /* UsersView.swift */,
+				E4712AE82CA2A248004437E4 /* User */,
+			);
+			path = UsersView;
+			sourceTree = "<group>";
+		};
+		E4712AE12CA29EAB004437E4 /* SignUpView */ = {
+			isa = PBXGroup;
+			children = (
+				E4712AE22CA29EBC004437E4 /* SignUpView.swift */,
+			);
+			path = SignUpView;
+			sourceTree = "<group>";
+		};
+		E4712AE72CA2A1EF004437E4 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				E4712ADA2CA2971D004437E4 /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		E4712AE82CA2A248004437E4 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				E4712AE92CA2A25A004437E4 /* UserView.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,9 +271,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4712AEC2CA2A2C0004437E4 /* NetworkService.swift in Sources */,
 				E4712ABF2CA28BD1004437E4 /* ContentView.swift in Sources */,
+				E4712ADB2CA2971D004437E4 /* MainView.swift in Sources */,
+				E4712AD92CA29612004437E4 /* NetworkMonitor.swift in Sources */,
 				E4712ABD2CA28BD1004437E4 /* TestTaskApp.swift in Sources */,
 				E4712ACE2CA28E75004437E4 /* SplashScreenView.swift in Sources */,
+				E4712AD12CA29341004437E4 /* Button+.swift in Sources */,
+				E4712AD62CA2945F004437E4 /* ConnectionView.swift in Sources */,
+				E4712AEA2CA2A25A004437E4 /* UserView.swift in Sources */,
+				E4712AE32CA29EBC004437E4 /* SignUpView.swift in Sources */,
+				E4712AE02CA29E74004437E4 /* UsersView.swift in Sources */,
+				E4712AEE2CA2A3AF004437E4 /* ApiEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
