@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct TestTaskApp: App {
+    
+    @State private var isActive = false
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
-        }
+                    SplashScreenView()
+                }
     }
 }
