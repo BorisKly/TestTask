@@ -34,7 +34,7 @@ struct SplashScreenView: View {
                     Spacer()
                 }
                 Spacer()
-            }.background(.yellow)
+            }.background(Colors.primaryColor)
         }
     }
 }

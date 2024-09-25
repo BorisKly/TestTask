@@ -29,6 +29,10 @@
 		E4712B022CA2E340004437E4 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712B012CA2E340004437E4 /* RadioButton.swift */; };
 		E4712B042CA2E6E2004437E4 /* PositionsResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712B032CA2E6E2004437E4 /* PositionsResponseData.swift */; };
 		E4712B062CA2EBCE004437E4 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712B052CA2EBCE004437E4 /* SignUpViewModel.swift */; };
+		E4712B0A2CA33427004437E4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712B092CA33427004437E4 /* Colors.swift */; };
+		E4712B0C2CA33838004437E4 /* TextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712B0B2CA33838004437E4 /* TextField+.swift */; };
+		E4712B0E2CA33FA9004437E4 /* TokenResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712B0D2CA33FA9004437E4 /* TokenResponseData.swift */; };
+		E4712B112CA3E91D004437E4 /* UploadPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4712B102CA3E91D004437E4 /* UploadPhotoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +59,10 @@
 		E4712B012CA2E340004437E4 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		E4712B032CA2E6E2004437E4 /* PositionsResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsResponseData.swift; sourceTree = "<group>"; };
 		E4712B052CA2EBCE004437E4 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		E4712B092CA33427004437E4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		E4712B0B2CA33838004437E4 /* TextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+.swift"; sourceTree = "<group>"; };
+		E4712B0D2CA33FA9004437E4 /* TokenResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponseData.swift; sourceTree = "<group>"; };
+		E4712B102CA3E91D004437E4 /* UploadPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,10 +95,10 @@
 		E4712ABB2CA28BD1004437E4 /* TestTask */ = {
 			isa = PBXGroup;
 			children = (
-				E4712AFB2CA2DC5D004437E4 /* HeaderView */,
 				E4712ACB2CA28CDF004437E4 /* NetworkService */,
 				E4712ACA2CA28CD6004437E4 /* App */,
 				E4712AE72CA2A1EF004437E4 /* MainView */,
+				E4712AFB2CA2DC5D004437E4 /* HeaderView */,
 				E4712ADD2CA29D48004437E4 /* ConnectionView */,
 				E4712ADE2CA29E68004437E4 /* UsersView */,
 				E4712AE12CA29EAB004437E4 /* SignUpView */,
@@ -125,9 +133,10 @@
 			isa = PBXGroup;
 			children = (
 				E4712AEB2CA2A2C0004437E4 /* NetworkService.swift */,
-				E4712AEF2CA2AA85004437E4 /* UsersResponseData.swift */,
 				E4712AF52CA2C25D004437E4 /* NetworkApiMethods.swift */,
+				E4712AEF2CA2AA85004437E4 /* UsersResponseData.swift */,
 				E4712B032CA2E6E2004437E4 /* PositionsResponseData.swift */,
+				E4712B0D2CA33FA9004437E4 /* TokenResponseData.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -136,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				E4712AD02CA29341004437E4 /* Button+.swift */,
+				E4712B0B2CA33838004437E4 /* TextField+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -143,6 +153,7 @@
 		E4712AD22CA29358004437E4 /* Colors */ = {
 			isa = PBXGroup;
 			children = (
+				E4712B092CA33427004437E4 /* Colors.swift */,
 			);
 			path = Colors;
 			sourceTree = "<group>";
@@ -203,6 +214,7 @@
 			children = (
 				E4712B052CA2EBCE004437E4 /* SignUpViewModel.swift */,
 				E4712AE22CA29EBC004437E4 /* SignUpView.swift */,
+				E4712B0F2CA3E901004437E4 /* UploadPhotoView */,
 				E4712AFE2CA2DF74004437E4 /* PositionsView */,
 			);
 			path = SignUpView;
@@ -231,6 +243,14 @@
 				E4712B012CA2E340004437E4 /* RadioButton.swift */,
 			);
 			path = PositionsView;
+			sourceTree = "<group>";
+		};
+		E4712B0F2CA3E901004437E4 /* UploadPhotoView */ = {
+			isa = PBXGroup;
+			children = (
+				E4712B102CA3E91D004437E4 /* UploadPhotoView.swift */,
+			);
+			path = UploadPhotoView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,14 +330,18 @@
 				E4712ABF2CA28BD1004437E4 /* ContentView.swift in Sources */,
 				E4712ADB2CA2971D004437E4 /* MainView.swift in Sources */,
 				E4712AF82CA2C88C004437E4 /* UserView.swift in Sources */,
+				E4712B0C2CA33838004437E4 /* TextField+.swift in Sources */,
 				E4712AD92CA29612004437E4 /* NetworkMonitor.swift in Sources */,
 				E4712AF42CA2B17E004437E4 /* User.swift in Sources */,
+				E4712B0E2CA33FA9004437E4 /* TokenResponseData.swift in Sources */,
 				E4712ABD2CA28BD1004437E4 /* TestTaskApp.swift in Sources */,
+				E4712B0A2CA33427004437E4 /* Colors.swift in Sources */,
 				E4712B022CA2E340004437E4 /* RadioButton.swift in Sources */,
 				E4712AF62CA2C25D004437E4 /* NetworkApiMethods.swift in Sources */,
 				E4712B042CA2E6E2004437E4 /* PositionsResponseData.swift in Sources */,
 				E4712ACE2CA28E75004437E4 /* SplashScreenView.swift in Sources */,
 				E4712AD12CA29341004437E4 /* Button+.swift in Sources */,
+				E4712B112CA3E91D004437E4 /* UploadPhotoView.swift in Sources */,
 				E4712AD62CA2945F004437E4 /* ConnectionView.swift in Sources */,
 				E4712AE32CA29EBC004437E4 /* SignUpView.swift in Sources */,
 				E4712AFA2CA2CFF7004437E4 /* UserDetailView.swift in Sources */,
@@ -381,7 +405,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -438,7 +462,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -464,6 +488,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -493,6 +518,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

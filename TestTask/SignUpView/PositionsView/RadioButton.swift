@@ -24,7 +24,7 @@ struct RadioButton: View {
                     .foregroundColor(.primary)
             }
         }
-        .buttonStyle(PlainButtonStyle()) // Без стандартного стилю кнопки
+        .buttonStyle(PlainButtonStyle()) 
     }
 }
 

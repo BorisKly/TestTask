@@ -37,7 +37,7 @@ struct Links: Codable {
 struct ResponseUser: Codable, Identifiable {
     let id: Int
     let name, email, phone: String
-    let position: Position
+    let position: String
     let positionID, registrationTimestamp: Int
     let photo: String
 
@@ -49,8 +49,4 @@ struct ResponseUser: Codable, Identifiable {
     }
 }
 
-enum Position: String, Codable {
-    case contentManager = "Content manager"
-    case designer = "Designer"
-    case lawyer = "Lawyer"
-}
+

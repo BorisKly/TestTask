@@ -34,6 +34,7 @@ struct UsersListView: View {
                 NetworkService.shared.getUsers(data: data, settings: nil) { result in
                     switch result {
                     case .success(let result):
+                        print(result)
                         do {
                             let jsonData = try JSONSerialization.data(withJSONObject: result, options: [])
                             let usersResponseData = try JSONDecoder().decode(UsersResponseData.self, from: jsonData)
@@ -46,6 +47,11 @@ struct UsersListView: View {
                     }
                 }
             }
+//            .onAppear {
+//                NetworkService.shared.getToken { result in
+//                    print(result)
+//                }
+//            }
         }
     }
 }

@@ -26,7 +26,7 @@ struct MainView: View {
             }
             .toolbarColorScheme(.light, for: .tabBar)
             .toolbarBackground(.visible, for: .tabBar)
-            .toolbarBackground(.yellow, for: .tabBar)
+            .toolbarBackground(Colors.primaryColor, for: .tabBar)
         }
     }
 }

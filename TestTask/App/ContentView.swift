@@ -9,12 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @StateObject var signUpViewModel = SignUpViewModel()
+    
     @StateObject private var networkMonitor = NetworkMonitor()
     
     var body: some View {
         VStack {
             if networkMonitor.isConnected {
                 MainView()
+                    .environmentObject(signUpViewModel)
             } else {
                 ConnectionView()
             }

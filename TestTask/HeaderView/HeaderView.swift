@@ -17,7 +17,7 @@ struct HeaderView: View {
             Spacer()
         }
         .frame(height: 50)
-        .background(.yellow)
+        .background(Colors.primaryColor)
     }
 }
 

@@ -25,8 +25,11 @@ class NetworkService {
     public static let shared = NetworkService()
     private init() {}
     
-    private func getHeader() -> [String: String] {
-        var header: [String: String] = ["Content-Type": "application/json"]
+    private func getHeader(accessToken: String? = nil, isMultipart: Bool = false) -> [String: String] {
+        var header: [String: String] = ["Content-Type": isMultipart ? "multipart/form-data" : "application/json"]
+        if let token = accessToken {
+            header["Authorization"] = "Bearer \(token)"
+        }
         return header
     }
     
@@ -104,6 +107,17 @@ class NetworkService {
         task.resume()
     }
     
+    private func GET(url: String,
+                     headers: [String: String]? = nil,
+                     completion: @escaping (Result<Any, Error>) -> Void) {
+        sendRequest(method: "GET",
+                    url: url,
+                    headers: headers,
+                    body: nil,
+                    isImageUpload: false,
+                    completion: completion)
+    }
+    
     private func POST(url: String,
                       headers: [String: String]? = nil,
                       body: Any? = nil,
@@ -114,17 +128,6 @@ class NetworkService {
                     headers: headers,
                     body: body,
                     isImageUpload: isImageUpload,
-                    completion: completion)
-    }
-    
-    private func GET(url: String,
-                     headers: [String: String]? = nil,
-                     completion: @escaping (Result<Any, Error>) -> Void) {
-        sendRequest(method: "GET",
-                    url: url,
-                    headers: headers,
-                    body: nil,
-                    isImageUpload: false,
                     completion: completion)
     }
     
@@ -163,6 +166,20 @@ class NetworkService {
         let headers = getHeader()
         GET(url: url, headers: headers, completion: completion)
     }
+    
+    func getToken (completion: @escaping (Result<Any, Error>) -> Void) {
+        let url = formUrl(endpoint: .token, settings: nil, data: nil)
+        let headers = getHeader()
+        GET(url: url, headers: headers, completion: completion)
+    }
+    
+    func postUser(data: [String: Any]?, settings: [String: Any]?, completion: @escaping (Result<Any, Error>) -> Void) {
+        let accessToken = settings?["accessToken"] as? String
+        let url = formUrl(endpoint: .users, settings: settings, data: data)
+        let headers = getHeader(accessToken: accessToken, isMultipart: true)
+        POST(url: url, completion: completion)
+    }
+    
     
 }
 

@@ -6,69 +6,66 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct SignUpView: View {
     
-    @ObservedObject var viewModel: SignUpViewModel
-    
-    @State var name: String = ""
-    @State var email: String = ""
-    @State var phone: String = ""
-
+    @EnvironmentObject var viewModel: SignUpViewModel
 
     var body: some View {
         VStack{
             HeaderView(title: "Working with POST reques")
             Spacer()
-            TextField("Your name", text: $name)
-                .padding()
-            TextField("Email", text: $email)
-                .padding()
-            VStack{
-                TextField("Phone", text: $phone)
-                HStack{ Text("+38 (XXX) XXX - XX -XX")
-                        .padding()
-                        .font(.footnote)
-                        .foregroundColor(.gray)
-                    Spacer()
+            VStack(spacing: 10){
+                TextField("Your name", text: $viewModel.name)
+                    .customStyle()
+                TextField("Email", text: $viewModel.email)
+                    .customStyle()
+                    .keyboardType(.emailAddress) 
+                    .autocapitalization(.none)
+                VStack{
+                    TextField("Phone", text: $viewModel.phone)
+                        .customStyle()
+                        .keyboardType(.phonePad)
+                    HStack{ Text("+38 (XXX) XXX - XX -XX")
+                            .padding()
+                            .font(.footnote)
+                            .foregroundColor(.gray)
+                        Spacer()
+                    }
                 }
             }
             .padding()
-            
-            Text("Select your position")
-                .font(.title)
-            
-            PositionsView()
             
             HStack{
-                Text("Upload your photo")
-                    .padding()
+                PositionsView()
+                if let image = UIImage(data: viewModel.selectedPhoto) {
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 100, height: 80)
+                                    .clipped()
+                            } else {
+                                Text("No image selected") // Текст на випадок, якщо зображення не вибрано
+                                    .foregroundColor(.gray)
+                            }
                 Spacer()
-                Button {
-                    print("upload Photo")
-                } label: {
-                    Text("Upload")
-                }
-                .padding()
             }
-            .border(.cyan)
-            .padding()
             
+            UploadPhotoView()
+           
             Button {
                 print("sign up")
+                viewModel.printRes()
             } label: {
                 Text("Sign up")
             }
-
-
-            
-
             Spacer()
 
         }
     }
 }
 
-#Preview {
-    SignUpView()
-}
+//#Preview {
+//    SignUpView()
+//}

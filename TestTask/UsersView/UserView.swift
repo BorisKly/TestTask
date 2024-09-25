@@ -33,7 +33,7 @@ struct UserView: View {
                   .clipShape(RoundedRectangle(cornerRadius: 10))
             VStack (alignment: .leading){
                 Text(user.name).font(.title)
-                Text(user.position.rawValue).font(.footnote)
+                Text(user.position).font(.footnote)
                 Text(user.email).font(.footnote)
                 Text(user.phone).font(.footnote)
             }

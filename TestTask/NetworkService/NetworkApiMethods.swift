@@ -11,6 +11,7 @@ enum NetworkApiMethods: String {
     
     case users = "users"
     case positions = "positions"
+    case token = "token" 
 //    case airPollution = "air_pollution"
     
     var path: String {
