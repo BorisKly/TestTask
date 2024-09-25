@@ -11,9 +11,9 @@ import PhotosUI
 struct UploadPhotoView: View {
     
     @EnvironmentObject var viewModel: SignUpViewModel
+    
     @State private var selectedItem: PhotosPickerItem? = nil
 
-    
     var body: some View {
         HStack{
             Text("Upload your photo")
@@ -31,11 +31,10 @@ struct UploadPhotoView: View {
                             if let data = data {
                                 DispatchQueue.main.async {
                                     viewModel.selectedPhoto = data
-                                    print(viewModel.selectedPhoto ?? "no" )
                                 }
                             }
                         case .failure(let error):
-                            print("Error loading image: \(error)")
+                            print("Error loading image: \(error.localizedDescription)")
                         }
                     }
                 }

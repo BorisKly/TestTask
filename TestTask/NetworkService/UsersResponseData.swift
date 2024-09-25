@@ -25,7 +25,7 @@ struct UsersResponseData: Codable {
 
 // MARK: - Links
 struct Links: Codable {
-    let nextURL, prevURL: String
+    let nextURL, prevURL: String?
 
     enum CodingKeys: String, CodingKey {
         case nextURL = "next_url"

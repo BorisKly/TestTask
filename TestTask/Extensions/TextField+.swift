@@ -16,6 +16,9 @@ extension TextField {
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(Colors.thirdDarkColor, lineWidth: 2)
             )
+            .onTapGesture {
+                     hideKeyboard()
+                 }
     }
 }
 

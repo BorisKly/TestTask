@@ -25,10 +25,12 @@ class NetworkService {
     public static let shared = NetworkService()
     private init() {}
     
-    private func getHeader(accessToken: String? = nil, isMultipart: Bool = false) -> [String: String] {
-        var header: [String: String] = ["Content-Type": isMultipart ? "multipart/form-data" : "application/json"]
+    private func getHeader(accessToken: String? = nil, 
+                           isMultipart: Bool = false,
+                           boundary: String? = nil) -> [String: String] {
+        var header: [String: String] = ["Content-Type": isMultipart ? "multipart/form-data; boundary=\(boundary ?? "")" : "application/json"]
         if let token = accessToken {
-            header["Authorization"] = "Bearer \(token)"
+            header["token"] = "\(token)"
         }
         return header
     }
@@ -42,7 +44,7 @@ class NetworkService {
         components.host = host
         components.path = endpoint.path
 
-        var queryParams = data?["queryParams"] as? [String: String] ?? [:]
+        let queryParams = data?["queryParams"] as? [String: String] ?? [:]
         components.queryItems = queryParams.map { URLQueryItem(name: $0.key, value: $0.value) }
 
         return components.url?.absoluteString ?? ""
@@ -59,20 +61,12 @@ class NetworkService {
             completion(.failure(NetworkError.invalidUrl))
             return
         }
-        
         var request = URLRequest(url: url)
         request.httpMethod = method
         request.allHTTPHeaderFields = headers ?? getHeader()
         
-        
-        print(request)
-        
         if method != "GET" {
-            if isImageUpload {
-                request.httpBody = body as? Data
-            } else if let body = body {
-                request.httpBody = try? JSONSerialization.data(withJSONObject: body)
-            }
+            request.httpBody = body as? Data
         }
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -81,12 +75,11 @@ class NetworkService {
                 completion(.failure(error))
                 return
             }
-            
             guard let httpResponse = response as? HTTPURLResponse else {
                 completion(.failure(NetworkError.invalidResponse))
                 return
             }
-            
+            print("httpResponse.statusCode\(httpResponse.statusCode)")
             let contentType = httpResponse.allHeaderFields["Content-Type"] as? String ?? ""
             
             if contentType.contains("application/json"), let data = data {
@@ -155,7 +148,9 @@ class NetworkService {
                     completion: completion)
     }
     
-    func getUsers(data: [String: Any]?, settings: [String: Any]?, completion: @escaping (Result<Any, Error>) -> Void) {
+    func getUsers(data: [String: Any]?, 
+                  settings: [String: Any]?,
+                  completion: @escaping (Result<Any, Error>) -> Void) {
         let url = formUrl(endpoint: .users, settings: settings, data: data)
         let headers = getHeader()
         GET(url: url, headers: headers, completion: completion)
@@ -173,13 +168,17 @@ class NetworkService {
         GET(url: url, headers: headers, completion: completion)
     }
     
-    func postUser(data: [String: Any]?, settings: [String: Any]?, completion: @escaping (Result<Any, Error>) -> Void) {
-        let accessToken = settings?["accessToken"] as? String
+    func postUser(data: [String: Any]?,
+                  settings: [String: Any]?,
+                  boundary: String?,
+                  completion: @escaping (Result<Any, Error>) -> Void) {
+        let accessToken = settings?["token"] as? String
         let url = formUrl(endpoint: .users, settings: settings, data: data)
-        let headers = getHeader(accessToken: accessToken, isMultipart: true)
-        POST(url: url, completion: completion)
+        let headers = getHeader(accessToken: accessToken, isMultipart: true, boundary: boundary)
+        POST(url: url,
+             headers: headers,
+             body: data?["body"],
+             completion: completion)
     }
-    
-    
 }
 

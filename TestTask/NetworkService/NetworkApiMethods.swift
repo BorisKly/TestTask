@@ -11,8 +11,7 @@ enum NetworkApiMethods: String {
     
     case users = "users"
     case positions = "positions"
-    case token = "token" 
-//    case airPollution = "air_pollution"
+    case token = "token"
     
     var path: String {
         let generalPath = #"/api/v1/"#

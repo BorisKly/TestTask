@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ConnectionView: View {
     
-    @State var isPresed: Bool = false
-    @State var isDissabled: Bool = false
+
    
     var body: some View {
         VStack(spacing: 30){
@@ -24,7 +23,7 @@ struct ConnectionView: View {
                 print("pressed")
             } label: {
                 Text("Try again")
-            }.customStyle(isPressed: isPresed, isDisabled: isDissabled)
+            }.customStyle()
         }
     }
 }
