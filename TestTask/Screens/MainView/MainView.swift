@@ -16,22 +16,30 @@ struct MainView: View {
 
     var body: some View {
         ZStack{
-            TabView(selection: $mainViewModel.selectedTab) {
-                Group {
-                    UsersListView()
-                        .tabItem {
-                            Label("Users", systemImage: "person.3.fill")
-                        }
-                        .tag(0)
-                    SignUpView()
-                        .tabItem {
-                            Label("Sign up", systemImage: "person.crop.circle.fill.badge.plus")
-                        }
-                        .tag(1)
+            NavigationStack{
+                TabView(selection: $mainViewModel.selectedTab) {
+                    Group {
+                        UsersListView()
+                            .tabItem {
+                                Label("Users", systemImage: "person.3.fill")
+                            }
+                            .tag(0)
+                        SignUpView()
+                            .tabItem {
+                                Label("Sign up", systemImage: "person.crop.circle.fill.badge.plus")
+                            }
+                            .tag(1)
+                    }
+                    .toolbarColorScheme(.light, for: .tabBar)
+                    .toolbarBackground(.visible, for: .tabBar)
+                    .toolbarBackground(Colors.primaryColor, for: .tabBar)
                 }
-                .toolbarColorScheme(.light, for: .tabBar)
-                .toolbarBackground(.visible, for: .tabBar)
-                .toolbarBackground(Colors.primaryColor, for: .tabBar)
+                .toolbar {
+                    HeaderView(title: mainViewModel.selectedTab == 0 ? "Working with GET reques" : "Working with POST reques")
+                }
+                .toolbarBackground(.teal, for: .automatic)
+                .toolbarBackground(Colors.primaryColor, for: .navigationBar)
+                .toolbarBackground(.visible, for: .navigationBar)
             }
             if mainViewModel.showSuccessRegistrationModal {
                 SuccessRegisteredView()

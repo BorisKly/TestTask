@@ -7,20 +7,28 @@
 
 import SwiftUI
 
-struct HeaderView: View {
+struct HeaderView: ToolbarContent {
     
     var title: String
-    var body: some View {
-        HStack{
-            Spacer()
-            Text(title)
-            Spacer()
+    
+    var body: some ToolbarContent {
+    
+        ToolbarItem(placement: .automatic) {
+            HStack{
+                Spacer()
+                Text(title)
+                    .foregroundStyle(Colors.blackColor)
+                Spacer()
+            }
+       
+//            .frame(maxWidth: .infinity)
+//            .padding()
+//            .background(Colors.primaryColor)
+            
         }
-        .frame(height: 50)
-        .background(Colors.primaryColor)
     }
 }
 
-#Preview {
-    HeaderView(title: "Working with ...")
-}
+//#Preview {
+//    HeaderView(title: "Working with ...")
+//}

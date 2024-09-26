@@ -13,7 +13,6 @@ struct UsersListView: View {
     
     var body: some View {
         VStack{
-            HeaderView(title: "Working with GET reques")
             NavigationStack {
                 List(viewModel.users) { user in
                     NavigationLink {

@@ -18,7 +18,7 @@ public enum Colors  {
     static let thirdDarkColor = Color(red: 222/255, green:  222/255, blue: 222/255, opacity: 1)
 
     
-    static let blackColor = Color(red: 224/225, green:  224/225, blue: 65/225, opacity: 1)
+    static let blackColor = Color(red: 0.1, green:  0.1, blue: 0.1, opacity: 1)
     static let blackColor60 = Color(red: 224/225, green:  224/225, blue: 65/225, opacity: 1)
     static let blackColor48 = Color(red: 224/225, green:  224/225, blue: 65/225, opacity: 1)
 
