@@ -19,6 +19,13 @@ struct SignUpButoonView: View {
             Text("Sign up")
         }
         .customStyle()
+//        .disabled(viewModel.isNameValid ||
+//                  viewModel.name.isEmpty ||
+//                  viewModel.isEmailValid ||
+//                  viewModel.email.isEmpty ||
+//                  viewModel.isPhoneValid ||
+//                  viewModel.phone.count < 5
+//        )
     }
 }
 

@@ -37,11 +37,21 @@ struct MainView: View {
                 SuccessRegisteredView()
                 .transition(.move(edge: .bottom))
             }
+            if mainViewModel.showAlreadyRegisteredModal {
+                AlreadyRegisteredView()
+                .transition(.move(edge: .bottom))
+            }
         }
         .onReceive(signUpViewModel.$openSuccessRegisterView) { status in
             if status {
                 mainViewModel.showSuccessRegistrationModal = true
                 signUpViewModel.openSuccessRegisterView = false
+            }
+        }
+        .onReceive(signUpViewModel.$openAlreadyRegisterView) { status in
+            if status {
+                mainViewModel.showAlreadyRegisteredModal = true
+                signUpViewModel.openAlreadyRegisterView = false
             }
         }
     }

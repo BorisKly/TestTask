@@ -22,7 +22,6 @@ struct ContentView: View {
                     .environmentObject(signUpViewModel)
                     .environmentObject(usersListViewModel)
                     .environmentObject(mainViewModel)
-
             } else {
                 ConnectionView()
             }

@@ -1,5 +1,5 @@
 //
-//  SuccessRegisteredView.swift
+//  AlreadyRegisteredView.swift
 //  TestTask
 //
 //  Created by Borys Klykavka on 26.09.2024.
@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-struct SuccessRegisteredView: View {
-    
+struct AlreadyRegisteredView: View {
     @EnvironmentObject var mainViewModel: MainViewModel
     @EnvironmentObject var usersListViewModel: UsersListViewModel
     
@@ -17,17 +16,15 @@ struct SuccessRegisteredView: View {
             Spacer()
             VStack(spacing: 20) {
                 Spacer()
-                Image("successRegistered")
+                Image("alreadyRegistered")
                     .resizable()
                     .frame(width: 200, height: 200)
                 
-                Text("Registration Successful!")
+                Text("The user with such email or phone is already registered!")
                     .font(.title)
                 HStack {
-                    Button("Got it") {
-                        mainViewModel.showSuccessRegistrationModal = false
-                        usersListViewModel.fetchUsers()
-                        mainViewModel.selectedTab = 0
+                    Button("Try again") {
+                        mainViewModel.showAlreadyRegisteredModal = false
                     }
                     .customStyle()
                 }
@@ -40,6 +37,6 @@ struct SuccessRegisteredView: View {
     }
 }
 
-//#Preview {
-//    SuccessRegisteredView()
-//}
+#Preview {
+    AlreadyRegisteredView()
+}

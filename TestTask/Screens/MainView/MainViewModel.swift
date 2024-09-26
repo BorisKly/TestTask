@@ -11,5 +11,6 @@ class MainViewModel: ObservableObject {
     
     @Published  var selectedTab = 0
     @Published var showSuccessRegistrationModal = false
+    @Published var showAlreadyRegisteredModal = false
 
 }

@@ -43,6 +43,8 @@
 		E4A304012CA5341A006978A9 /* SignUpViewModel+registerUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A304002CA5341A006978A9 /* SignUpViewModel+registerUser.swift */; };
 		E4A304032CA56636006978A9 /* UsersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A304022CA56636006978A9 /* UsersListViewModel.swift */; };
 		E4A304062CA5725E006978A9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A304052CA5725E006978A9 /* MainViewModel.swift */; };
+		E4A3040A2CA59B9A006978A9 /* Text+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A304092CA59B9A006978A9 /* Text+.swift */; };
+		E4A3040C2CA5B369006978A9 /* AlreadyRegisteredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A3040B2CA5B369006978A9 /* AlreadyRegisteredView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,8 @@
 		E4A304002CA5341A006978A9 /* SignUpViewModel+registerUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+registerUser.swift"; sourceTree = "<group>"; };
 		E4A304022CA56636006978A9 /* UsersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewModel.swift; sourceTree = "<group>"; };
 		E4A304052CA5725E006978A9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		E4A304092CA59B9A006978A9 /* Text+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+.swift"; sourceTree = "<group>"; };
+		E4A3040B2CA5B369006978A9 /* AlreadyRegisteredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlreadyRegisteredView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,7 @@
 				E4712B0B2CA33838004437E4 /* TextField+.swift */,
 				E4712B1E2CA45521004437E4 /* View+.swift */,
 				E4712B202CA4568C004437E4 /* Data+.swift */,
+				E4A304092CA59B9A006978A9 /* Text+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 				E4712AFC2CA2DC71004437E4 /* HeaderView.swift */,
 				E4712ACD2CA28E75004437E4 /* SplashScreenView.swift */,
 				E4A303FC2CA530E5006978A9 /* SuccessRegisteredView.swift */,
+				E4A3040B2CA5B369006978A9 /* AlreadyRegisteredView.swift */,
 			);
 			path = SecondaryViews;
 			sourceTree = "<group>";
@@ -388,6 +394,7 @@
 				E4712AEC2CA2A2C0004437E4 /* NetworkService.swift in Sources */,
 				E4712B142CA3F98A004437E4 /* SignUpButoonView.swift in Sources */,
 				E4712AF02CA2AA85004437E4 /* UsersResponseData.swift in Sources */,
+				E4A3040C2CA5B369006978A9 /* AlreadyRegisteredView.swift in Sources */,
 				E4712B062CA2EBCE004437E4 /* SignUpViewModel.swift in Sources */,
 				E4712B1F2CA45521004437E4 /* View+.swift in Sources */,
 				E4712B002CA2DF89004437E4 /* PositionsView.swift in Sources */,
@@ -408,6 +415,7 @@
 				E4A304062CA5725E006978A9 /* MainViewModel.swift in Sources */,
 				E4712AF62CA2C25D004437E4 /* NetworkApiMethods.swift in Sources */,
 				E4712B042CA2E6E2004437E4 /* PositionsResponseData.swift in Sources */,
+				E4A3040A2CA59B9A006978A9 /* Text+.swift in Sources */,
 				E4712ACE2CA28E75004437E4 /* SplashScreenView.swift in Sources */,
 				E4A303FD2CA530E5006978A9 /* SuccessRegisteredView.swift in Sources */,
 				E4712B1B2CA4182B004437E4 /* TextFieldsGroupView.swift in Sources */,

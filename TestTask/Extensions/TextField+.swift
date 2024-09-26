@@ -10,8 +10,8 @@ import SwiftUI
 extension TextField {
     func customStyle() -> some View {
         self
-            .frame(height: 40)
-            .cornerRadius(8)
+            .frame(width: 320, height: 48)
+            .cornerRadius(16)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(Colors.thirdDarkColor, lineWidth: 2)

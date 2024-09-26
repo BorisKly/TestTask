@@ -41,7 +41,9 @@ extension SignUpViewModel {
                     print("invalidResponse")
                 case .serverError(json: let json, statusCode: let statusCode):
                     if statusCode == 409 {
-                        print("User with this phone or email already exist")
+                        DispatchQueue.main.async{
+                            self.openAlreadyRegisterView = true
+                        }
                     }
                     if statusCode == 401 {
                         print("The token expired")
