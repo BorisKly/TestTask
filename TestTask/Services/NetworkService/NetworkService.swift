@@ -9,12 +9,17 @@ import Foundation
 
 import Foundation
 
+struct NetworkResponse {
+    let json: Any
+    let statusCode: Int
+}
+
 enum NetworkError: Error {
     case invalidUrl
+    case invalidTask
     case invalidResponse
-    case serverError(Any)
-    case invalidJson
-    case unsupportedContentType
+    case serverError(json: Any, statusCode: Int)
+    case customError(message: String, statusCode: Int)
 }
 
 class NetworkService {
@@ -55,7 +60,7 @@ class NetworkService {
                              headers: [String: String]? = nil,
                              body: Any? = nil,
                              isImageUpload: Bool = false,
-                             completion: @escaping (Result<Any, Error>) -> Void) {
+                             completion: @escaping (Result<NetworkResponse, NetworkError>) -> Void) {
         
         guard let url = URL(string: url) else {
             completion(.failure(NetworkError.invalidUrl))
@@ -72,7 +77,7 @@ class NetworkService {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             
             if let error = error {
-                completion(.failure(error))
+                completion(.failure(NetworkError.invalidTask))
                 return
             }
             guard let httpResponse = response as? HTTPURLResponse else {
@@ -85,16 +90,20 @@ class NetworkService {
             if contentType.contains("application/json"), let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    let statusCode = httpResponse.statusCode
                     if (200...299).contains(httpResponse.statusCode) {
-                        completion(.success(json))
+                        let response = NetworkResponse(json: json, statusCode: statusCode)
+                        completion(.success(response))
                     } else {
-                        completion(.failure(NetworkError.serverError(json)))
+                        completion(.failure(NetworkError.serverError(json: json, statusCode: statusCode)))
                     }
                 } catch {
-                    completion(.failure(NetworkError.invalidJson))
+                    let statusCode = httpResponse.statusCode
+                    completion(.failure(NetworkError.customError(message: "Invalid JSON format", statusCode: statusCode)))
                 }
             } else {
-                completion(.failure(NetworkError.unsupportedContentType))
+                let statusCode = httpResponse.statusCode
+                completion(.failure(NetworkError.customError(message: "Unsupported content type", statusCode: statusCode)))
             }
         }
         task.resume()
@@ -102,7 +111,7 @@ class NetworkService {
     
     private func GET(url: String,
                      headers: [String: String]? = nil,
-                     completion: @escaping (Result<Any, Error>) -> Void) {
+                     completion: @escaping (Result<NetworkResponse, NetworkError>) -> Void) {
         sendRequest(method: "GET",
                     url: url,
                     headers: headers,
@@ -115,7 +124,7 @@ class NetworkService {
                       headers: [String: String]? = nil,
                       body: Any? = nil,
                       isImageUpload: Bool = false,
-                      completion: @escaping (Result<Any, Error>) -> Void) {
+                      completion: @escaping (Result<NetworkResponse, NetworkError>) -> Void) {
         sendRequest(method: "POST",
                     url: url,
                     headers: headers,
@@ -127,7 +136,7 @@ class NetworkService {
     private func PUT(url: String,
                      headers: [String: String]? = nil,
                      body: Any? = nil,
-                     completion: @escaping (Result<Any, Error>) -> Void) {
+                     completion: @escaping (Result<NetworkResponse, NetworkError>) -> Void) {
         sendRequest(method: "PUT",
                     url: url,
                     headers: headers,
@@ -139,7 +148,7 @@ class NetworkService {
     private func DELETE(url: String,
                         headers: [String: String]? = nil,
                         body: Any? = nil,
-                        completion: @escaping (Result<Any, Error>) -> Void) {
+                        completion: @escaping (Result<NetworkResponse, NetworkError>) -> Void) {
         sendRequest(method: "DELETE",
                     url: url,
                     headers: headers,
@@ -150,19 +159,19 @@ class NetworkService {
     
     func getUsers(data: [String: Any]?, 
                   settings: [String: Any]?,
-                  completion: @escaping (Result<Any, Error>) -> Void) {
+                  completion: @escaping (Result<NetworkResponse, NetworkError>) -> Void) {
         let url = formUrl(endpoint: .users, settings: settings, data: data)
         let headers = getHeader()
         GET(url: url, headers: headers, completion: completion)
     }
     
-    func getPositions (completion: @escaping (Result<Any, Error>) -> Void) {
+    func getPositions (completion: @escaping (Result<NetworkResponse, NetworkError>) -> Void) {
         let url = formUrl(endpoint: .positions, settings: nil, data: nil)
         let headers = getHeader()
         GET(url: url, headers: headers, completion: completion)
     }
     
-    func getToken (completion: @escaping (Result<Any, Error>) -> Void) {
+    func getToken (completion: @escaping (Result<NetworkResponse, NetworkError>) -> Void) {
         let url = formUrl(endpoint: .token, settings: nil, data: nil)
         let headers = getHeader()
         GET(url: url, headers: headers, completion: completion)
@@ -171,7 +180,7 @@ class NetworkService {
     func postUser(data: [String: Any]?,
                   settings: [String: Any]?,
                   boundary: String?,
-                  completion: @escaping (Result<Any, Error>) -> Void) {
+                  completion: @escaping (Result<NetworkResponse, NetworkError>) -> Void) {
         let accessToken = settings?["token"] as? String
         let url = formUrl(endpoint: .users, settings: settings, data: data)
         let headers = getHeader(accessToken: accessToken, isMultipart: true, boundary: boundary)

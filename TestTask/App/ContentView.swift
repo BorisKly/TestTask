@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject var signUpViewModel = SignUpViewModel()
+    @StateObject var usersListViewModel = UsersListViewModel()
+    @StateObject var mainViewModel = MainViewModel()
     
     @StateObject private var networkMonitor = NetworkMonitor()
     
@@ -18,6 +20,9 @@ struct ContentView: View {
             if networkMonitor.isConnected {
                 MainView()
                     .environmentObject(signUpViewModel)
+                    .environmentObject(usersListViewModel)
+                    .environmentObject(mainViewModel)
+
             } else {
                 ConnectionView()
             }

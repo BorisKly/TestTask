@@ -11,7 +11,7 @@ struct ConnectionView: View {
     
     var body: some View {
         VStack(spacing: 30){
-            Image("successImage")
+            Image("internetConnectionImage")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()

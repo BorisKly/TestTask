@@ -25,15 +25,30 @@ struct PositionsView: View {
             .onAppear { NetworkService.shared.getPositions { result in
                 switch result {
                 case .success(let result):
+                    let json = result.json
+                    let statusCode = result.statusCode
                     do {
-                        let jsonData = try JSONSerialization.data(withJSONObject: result, options: [])
+                        let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
                         let positionsResponseData = try JSONDecoder().decode(PositionsResponseData.self, from: jsonData)
                         self.userPositions = positionsResponseData.positions
+                        print(statusCode)
                     } catch {
                         print("Error decoding UsersResponseData: \(error.localizedDescription)")
                     }
                 case .failure(let error):
-                    print("Error: \(error.localizedDescription)")
+                    switch error {case .invalidUrl:
+                        print("statusCode")
+                    case .invalidTask:
+                        print("statusCode")
+                    case .invalidResponse:
+                        print("statusCode")
+                    case .serverError(json: let json, statusCode: let statusCode):
+                        if (statusCode == 404) || (statusCode == 422)  {
+                            print("\(statusCode): Positions not found")
+                        }
+                    case .customError(message: let message, statusCode: let statusCode):
+                        print(message)
+                    }
                 }
             }
             }

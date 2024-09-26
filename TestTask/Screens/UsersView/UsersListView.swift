@@ -9,19 +9,13 @@ import SwiftUI
 
 struct UsersListView: View {
     
-    @State var users: [ResponseUser] = [];
+    @EnvironmentObject var viewModel: UsersListViewModel
     
-    let data: [String: Any] = [
-        "queryParams": [
-            "page": "1",
-            "count": "10"
-        ],
-    ]
     var body: some View {
         VStack{
             HeaderView(title: "Working with GET reques")
             NavigationStack {
-                List(users) { user in
+                List(viewModel.users) { user in
                     NavigationLink {
                         UserDetailView(user:user)
                     } label: {
@@ -31,20 +25,7 @@ struct UsersListView: View {
                 }
                 .navigationTitle("Users")
             }.onAppear {
-                NetworkService.shared.getUsers(data: data, settings: nil) { result in
-                    switch result {
-                    case .success(let result):
-                        do {
-                            let jsonData = try JSONSerialization.data(withJSONObject: result, options: [])
-                            let usersResponseData = try JSONDecoder().decode(UsersResponseData.self, from: jsonData)
-                            self.users = usersResponseData.users
-                        } catch {
-                            print("Error decoding UsersResponseData: \(error.localizedDescription)")
-                        }
-                    case .failure(let error):
-                        print("Error: \(error.localizedDescription)")
-                    }
-                }
+                viewModel.fetchUsers()
             }
         }
     }
