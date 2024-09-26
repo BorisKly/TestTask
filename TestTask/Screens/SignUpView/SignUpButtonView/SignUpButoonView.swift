@@ -14,7 +14,6 @@ struct SignUpButoonView: View {
     var body: some View {
      
         Button {
-            print("sign up")
             viewModel.registerNewUser()
         } label: {
             Text("Sign up")

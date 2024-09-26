@@ -16,7 +16,7 @@ struct SignUpView: View {
         VStack{
             HeaderView(title: "Working with POST reques")
             Spacer()
-            TextFieldsView()
+            TextFieldsGroupView()
             HStack{
                 PositionsView()
                 Spacer()

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TextFieldsView: View {
+struct TextFieldsGroupView: View {
     
     @EnvironmentObject var viewModel: SignUpViewModel
     
@@ -31,9 +31,10 @@ struct TextFieldsView: View {
                 }
             }
         }
-        .padding()    }
+        .padding()
+    }
 }
 
 #Preview {
-    TextFieldsView()
+    TextFieldsGroupView()
 }
