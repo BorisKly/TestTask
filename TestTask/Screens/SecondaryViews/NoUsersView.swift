@@ -1,13 +1,13 @@
 //
-//  AlreadyRegisteredView.swift
+//  NoUsersView.swift
 //  TestTask
 //
-//  Created by Borys Klykavka on 26.09.2024.
+//  Created by Borys Klykavka on 27.09.2024.
 //
 
 import SwiftUI
 
-struct AlreadyRegisteredView: View {
+struct NoUsersView: View {
     @EnvironmentObject var mainViewModel: MainViewModel
     @EnvironmentObject var usersListViewModel: UsersListViewModel
     
@@ -16,17 +16,12 @@ struct AlreadyRegisteredView: View {
             Spacer()
             VStack(spacing: 20) {
                 Spacer()
-                Image("alreadyRegistered")
+                Image("noUsersImage")
                     .resizable()
                     .frame(width: 200, height: 200)
-                Text("That email is already registered!")
+                
+                Text("There is no users yet")
                     .custom20()
-                HStack {
-                    Button("Try again") {
-                        mainViewModel.showAlreadyRegisteredModal = false
-                    }
-                    .customStyle()
-                }
                 Spacer()
             }
             Spacer()
@@ -37,5 +32,5 @@ struct AlreadyRegisteredView: View {
 }
 
 #Preview {
-    AlreadyRegisteredView()
+    NoUsersView()
 }

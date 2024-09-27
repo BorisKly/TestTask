@@ -10,11 +10,12 @@ import Foundation
 class UsersListViewModel: ObservableObject {
     
     @Published var users: [ResponseUser] = [];
+    let numberOfUsersPerPage = 6
     
     let data: [String: Any] = [
         "queryParams": [
             "page": "1",
-            "count": "10"
+            "count": "6"
         ],
     ]
     
@@ -23,6 +24,7 @@ class UsersListViewModel: ObservableObject {
             switch result {
             case .success(let result):
                 let json = result.json
+                print(json)
                 let statusCode = result.statusCode
                 do {
                     let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])

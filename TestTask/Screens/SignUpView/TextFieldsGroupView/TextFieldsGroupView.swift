@@ -12,10 +12,10 @@ enum Field: Hashable {
     case email
     case phone
 }
+
 struct TextFieldsGroupView: View {
     
     @EnvironmentObject var viewModel: SignUpViewModel
-    
     @FocusState private var focusedField: Field?
     
     var body: some View {
@@ -23,10 +23,12 @@ struct TextFieldsGroupView: View {
             VStack{
                 TextField("Your name", text: $viewModel.name)
                     .customStyle()
-                    .foregroundColor(viewModel.isNameValid ? Colors.primaryColor : .red)
+                    .foregroundColor(viewModel.isNameValid ? Colors.primaryColor : .yellow)
                     .overlay(
                         RoundedRectangle(cornerRadius: 5)
-                            .stroke(viewModel.isNameValid ? Colors.primaryColor : .red, lineWidth: 1)
+                            .stroke( (viewModel.name.isEmpty) ?
+                                     (viewModel.isSignUpButtonPressed ? .red : Colors.primaryColor) : (viewModel.isNameValid ? Colors.primaryColor : .red ),
+                                     lineWidth: 1)
                     )
                     .keyboardType(.default)
                     .submitLabel(.done)
@@ -40,8 +42,17 @@ struct TextFieldsGroupView: View {
                             focusedField = .email
                         }
                     }
-                if !viewModel.isNameValid { Text(viewModel.name.isEmpty ? "Required field" : "The name must be at least 2 characters.")
-                        .footnoteRedStyle()
+                
+                if viewModel.name.isEmpty {
+                    if viewModel.isSignUpButtonPressed {
+                        Text("Required field")
+                            .footnoteRedStyle()
+                    }
+                } else {
+                    if !viewModel.isNameValid {
+                        Text("The name must be at least 2 characters.")
+                            .footnoteRedStyle()
+                    }
                 }
             }
             VStack{
@@ -50,13 +61,15 @@ struct TextFieldsGroupView: View {
                     .foregroundColor(viewModel.isEmailValid ? Colors.primaryColor : .red)
                     .overlay(
                         RoundedRectangle(cornerRadius: 5)
-                            .stroke(viewModel.isEmailValid ? Colors.primaryColor : .red, lineWidth: 1)
+                            .stroke( (viewModel.email.isEmpty) ?
+                                     (viewModel.isSignUpButtonPressed ? .red : Colors.primaryColor) : (viewModel.isEmailValid ? Colors.primaryColor : .red ),
+                                     lineWidth: 1)
                     )
                     .keyboardType(.emailAddress)
                     .submitLabel(.done)
                     .focused($focusedField, equals: .email)
                     .onChange(of: viewModel.email) { newValue in
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: viewModel.validateEmail)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: viewModel.validateEmail)
                     }
                     .onSubmit {
                         viewModel.validateEmail()
@@ -65,20 +78,30 @@ struct TextFieldsGroupView: View {
                         }
                     }
                     .autocapitalization(.none)
-                if !viewModel.isEmailValid { Text(viewModel.email.isEmpty ? "Required field" : "The email must be a valid email address.")
-                        .footnoteRedStyle()
+                if viewModel.email.isEmpty {
+                    if viewModel.isSignUpButtonPressed {
+                        Text("Required field")
+                            .footnoteRedStyle()
+                    }
+                } else {
+                    if !viewModel.isEmailValid {
+                        Text("Invalid email format.")
+                            .footnoteRedStyle()
+                    }
                 }
             }
             VStack{
                 VStack{
                     TextField("Phone", text: $viewModel.phone)
                         .customStyle()
-                        .foregroundColor(viewModel.isPhoneValid ? Colors.primaryColor : .red)
+                        .foregroundColor((viewModel.phone == "+380" || viewModel.isPhoneValid ) ? Colors.primaryColor : .red)
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
-                                .stroke(viewModel.isPhoneValid ? Colors.primaryColor : .red, lineWidth: 1)
+                                .stroke( (viewModel.phone == "+380") ?
+                                         (viewModel.isSignUpButtonPressed ? .red : Colors.primaryColor) : (viewModel.isPhoneValid ? Colors.primaryColor : .red ),
+                                         lineWidth: 1)
                         )
-                        .keyboardType(.numberPad)
+                        .keyboardType(.default)
                         .submitLabel(.done)
                         .focused($focusedField, equals: .phone)
                         .onChange(of: viewModel.phone) { newValue in
@@ -90,8 +113,16 @@ struct TextFieldsGroupView: View {
                                 focusedField = nil
                             }
                         }
-                    if !viewModel.isPhoneValid { Text(viewModel.phone.isEmpty ? "Required field" : "The phone must be a valid phone.")
-                            .footnoteRedStyle()
+                    if viewModel.phone == "+380" {
+                        if viewModel.isSignUpButtonPressed {
+                            Text("Required field")
+                                .footnoteRedStyle()
+                        }
+                    } else {
+                        if !viewModel.isPhoneValid {
+                            Text("The phone must be a valid.")
+                                .footnoteRedStyle()
+                        }
                     }
                     Text("+38 (XXX) XXX - XX -XX")
                         .font(.footnote)
@@ -99,7 +130,6 @@ struct TextFieldsGroupView: View {
                 }
             }
         }
-        .padding()
     }
 }
 

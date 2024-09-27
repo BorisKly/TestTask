@@ -22,7 +22,7 @@ struct SuccessRegisteredView: View {
                     .frame(width: 200, height: 200)
                 
                 Text("Registration Successful!")
-                    .font(.title)
+                    .custom20()
                 HStack {
                     Button("Got it") {
                         mainViewModel.showSuccessRegistrationModal = false
@@ -40,6 +40,6 @@ struct SuccessRegisteredView: View {
     }
 }
 
-//#Preview {
-//    SuccessRegisteredView()
-//}
+#Preview {
+    SuccessRegisteredView()
+}

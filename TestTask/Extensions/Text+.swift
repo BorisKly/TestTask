@@ -13,5 +13,11 @@ extension Text {
             .font(.footnote)
             .foregroundStyle(.red)
     }
+    
+    func custom20() -> some View {
+        self
+            .font(Fonts.primaryFont20)
+            .foregroundStyle(Colors.blackColor)
+    }
   
 }

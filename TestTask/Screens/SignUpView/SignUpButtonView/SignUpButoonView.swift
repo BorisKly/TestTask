@@ -11,21 +11,22 @@ struct SignUpButoonView: View {
     
     @EnvironmentObject var viewModel: SignUpViewModel
     
+    
     var body: some View {
-     
+        
         Button {
-            viewModel.registerUser()
+            viewModel.isSignUpButtonPressed = true
+            
+            if (viewModel.isNameValid &&
+                viewModel.isEmailValid &&
+                viewModel.isPhoneValid &&
+                viewModel.isPhotoValid) {
+                viewModel.registerUser()
+            } 
         } label: {
             Text("Sign up")
         }
         .customStyle()
-//        .disabled(viewModel.isNameValid ||
-//                  viewModel.name.isEmpty ||
-//                  viewModel.isEmailValid ||
-//                  viewModel.email.isEmpty ||
-//                  viewModel.isPhoneValid ||
-//                  viewModel.phone.count < 5
-//        )
     }
 }
 

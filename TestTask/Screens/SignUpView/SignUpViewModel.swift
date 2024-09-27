@@ -14,29 +14,25 @@ class SignUpViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var phone: String = "+380"
     @Published var selectedId: Int = 1
-    @Published var selectedPhoto: Data?
+    @Published var selectedPhoto: Data? 
     
     @Published var token: String = ""
     @Published var openSuccessRegisterView = false
     @Published var openAlreadyRegisterView = false
 
-    @Published var isNameValid: Bool = true
-    @Published var isEmailValid: Bool = true
-    @Published var isPhoneValid: Bool = true
+    @Published var isNameValid: Bool = false
+    @Published var isEmailValid: Bool = false
+    @Published var isPhoneValid: Bool = false
+    @Published var isPhotoValid: Bool = false
 
+    @Published var isSignUpButtonPressed = false
     
     private var validationWorkItem: DispatchWorkItem?
     
     init() {
-//        if let defaultImage = UIImage(named: "photo"),
-//           let data = defaultImage.jpegData(compressionQuality: 1.0) {
-//            self.selectedPhoto = data
-//        } else {
-//            self.selectedPhoto = Data()
-//        }
         fetchToken()
     }
-    
+        
     func validateName() {
         isNameValid = name.count >= 2 && name.count <= 20
     }
@@ -49,6 +45,19 @@ class SignUpViewModel: ObservableObject {
         let phonePattern = "^\\+380\\d{9}$"
         let phonePredicate = NSPredicate(format: "SELF MATCHES %@", phonePattern)
         isPhoneValid = phonePredicate.evaluate(with: phone)
+    }
+    func validatePhoto() {
+        if selectedPhoto != nil {
+            isPhotoValid = true
+        }
+    }
+    
+    func resetUser() {
+        name = ""
+        email = ""
+        phone = "+380"
+        selectedPhoto = nil
+        isSignUpButtonPressed = false
     }
 }
 

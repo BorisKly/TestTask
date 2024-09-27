@@ -10,18 +10,20 @@ import SwiftUI
 struct ConnectionView: View {
     
     var body: some View {
-        VStack(spacing: 30){
+        VStack(spacing: 12){
             Image("internetConnectionImage")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
-                .frame(maxWidth: 100, maxHeight: 100) 
+                .frame(width: 200, height: 200) 
             Text("There is no internet connection")
+                .custom20()
             Button {
                 print("pressed")
             } label: {
                 Text("Try again")
-            }.customStyle()
+            }
+            .customStyle()
         }
     }
 }

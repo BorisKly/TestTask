@@ -24,10 +24,12 @@ extension SignUpViewModel {
             switch result {
             case .success(let result):
                 let json = result.json
+                print(json)
                 let statusCode = result.statusCode
                 if statusCode == 201 {
                     DispatchQueue.main.async{
                         self.openSuccessRegisterView = true
+                        self.resetUser()
                     }
                 }
                 print(statusCode)

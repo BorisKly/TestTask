@@ -13,20 +13,24 @@ struct UsersListView: View {
     
     var body: some View {
         VStack{
-            NavigationStack {
-                List(viewModel.users) { user in
-                    NavigationLink {
-                        UserDetailView(user:user)
-                    } label: {
-                        UserView(user: user)
+            if viewModel.users.isEmpty {
+                NoUsersView()
+            } else {
+                NavigationStack {
+                    List(viewModel.users) { user in
+                        NavigationLink {
+                            UserDetailView(user:user)
+                        } label: {
+                            UserView(user: user)
+                        }
+                        .buttonStyle(PlainButtonStyle())
                     }
-                    .buttonStyle(PlainButtonStyle())
-                }
-                .navigationTitle("Users")
-            }.onAppear {
-                viewModel.fetchUsers()
-            }
+                    .navigationTitle("Users")
+                }            }
+        }.onAppear {
+            viewModel.fetchUsers()
         }
+
     }
 }
 

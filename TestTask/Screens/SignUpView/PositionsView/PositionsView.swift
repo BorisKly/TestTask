@@ -13,44 +13,55 @@ struct PositionsView: View {
     @State private var userPositions: [ResponsePosition] = [];
     
     var body: some View {
-        VStack{
+        VStack(spacing: 10){
             Text("Select your position")
                 .font(.headline)
-            VStack(alignment: .leading, spacing: 20) {
-                ForEach(userPositions, id: \.id) { position in
-                    RadioButton(id: position.id, label: position.name, selectedId: $viewModel.selectedId)
-                }
-            }
-            .padding()
-            .onAppear { NetworkService.shared.getPositions { result in
-                switch result {
-                case .success(let result):
-                    let json = result.json
-                    let statusCode = result.statusCode
-                    do {
-                        let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
-                        let positionsResponseData = try JSONDecoder().decode(PositionsResponseData.self, from: jsonData)
-                        self.userPositions = positionsResponseData.positions
-                        print(statusCode)
-                    } catch {
-                        print("Error decoding UsersResponseData: \(error.localizedDescription)")
+            HStack{
+                VStack(alignment: .leading, spacing: 10) {
+                    ForEach(userPositions, id: \.id) { position in
+                        RadioButton(id: position.id, label: position.name, selectedId: $viewModel.selectedId)
                     }
-                case .failure(let error):
-                    switch error {case .invalidUrl:
-                        print("statusCode")
-                    case .invalidTask:
-                        print("statusCode")
-                    case .invalidResponse:
-                        print("statusCode")
-                    case .serverError(json: let json, statusCode: let statusCode):
-                        if (statusCode == 404) || (statusCode == 422)  {
-                            print("\(statusCode): Positions not found")
+                }
+                .padding()
+                .onAppear { NetworkService.shared.getPositions { result in
+                    switch result {
+                    case .success(let result):
+                        let json = result.json
+                        let statusCode = result.statusCode
+                        do {
+                            let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
+                            let positionsResponseData = try JSONDecoder().decode(PositionsResponseData.self, from: jsonData)
+                            self.userPositions = positionsResponseData.positions
+                            print(statusCode)
+                        } catch {
+                            print("Error decoding UsersResponseData: \(error.localizedDescription)")
                         }
-                    case .customError(message: let message, statusCode: let statusCode):
-                        print(message)
+                    case .failure(let error):
+                        switch error {case .invalidUrl:
+                            print("statusCode")
+                        case .invalidTask:
+                            print("statusCode")
+                        case .invalidResponse:
+                            print("statusCode")
+                        case .serverError(json: let json, statusCode: let statusCode):
+                            if (statusCode == 404) || (statusCode == 422)  {
+                                print("\(statusCode): Positions not found")
+                            }
+                        case .customError(message: let message, statusCode: let statusCode):
+                            print(message)
+                        }
                     }
+                    
                 }
-            }
+                }
+                if let imageData = viewModel.selectedPhoto,
+                   let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage) 
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                } else {
+                    Text("No Image Selected")
+                }
             }
         }
     }

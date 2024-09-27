@@ -15,33 +15,48 @@ struct UploadPhotoView: View {
     @State private var selectedItem: PhotosPickerItem? = nil
 
     var body: some View {
-        HStack{
-            Text("Upload your photo")
+        VStack{
+            HStack{
+                Text("Upload your photo")
+                    .padding()
+                Spacer()
+                PhotosPicker(selection: $selectedItem, matching: .images, photoLibrary: .shared()) {
+                    Text("Upload")
+                }
                 .padding()
-            Spacer()
-            PhotosPicker(selection: $selectedItem, matching: .images, photoLibrary: .shared()) {
-                Text("Upload")
-            }
-            .padding()
-            .onChange(of: selectedItem) { newItem in
-                if let item = newItem {
-                    item.loadTransferable(type: Data.self) { result in
-                        switch result {
-                        case .success(let data):
-                            if let data = data {
-                                DispatchQueue.main.async {
-                                    viewModel.selectedPhoto = data
+                .onChange(of: selectedItem) { newItem in
+                    if let item = newItem {
+                        item.loadTransferable(type: Data.self) { result in
+                            switch result {
+                            case .success(let data):
+                                if let data = data {
+                                    DispatchQueue.main.async {
+                                        viewModel.selectedPhoto = data
+                                        viewModel.validatePhoto() /// ??????
+                                    }
                                 }
+                            case .failure(let error):
+                                print("Error loading image: \(error.localizedDescription)")
                             }
-                        case .failure(let error):
-                            print("Error loading image: \(error.localizedDescription)")
                         }
                     }
                 }
             }
+            .cornerRadius(16)
+            .overlay(
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke( (viewModel.selectedPhoto == nil) ?
+                             (viewModel.isSignUpButtonPressed ? .red : Colors.primaryColor) : (viewModel.isPhotoValid ? Colors.primaryColor : .red ),
+                             lineWidth: 1)
+            )
+            
+            if viewModel.selectedPhoto == nil {
+                if viewModel.isSignUpButtonPressed {
+                    Text("Required field")
+                        .footnoteRedStyle()
+                }
+            }
         }
-        .border(.cyan)
-        .padding()
     }
 }
 

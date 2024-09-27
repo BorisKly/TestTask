@@ -11,19 +11,33 @@ import PhotosUI
 struct SignUpView: View {
     
     @EnvironmentObject var viewModel: SignUpViewModel
+    @StateObject var keyboardResponder = KeyboardResponder()
 
     var body: some View {
-        VStack{
-            Spacer()
-            TextFieldsGroupView()
-            HStack{
-                PositionsView()
+        GeometryReader { geometry in
+            VStack(spacing: 20){
+                TextFieldsGroupView()
+                if !keyboardResponder.isKeyboardVisible {
+                    withAnimation(.easeInOut) {
+                        HStack{
+                            PositionsView()
+                            Spacer()
+                        }
+                    }
+                }
+                UploadPhotoView()
+                if !keyboardResponder.isKeyboardVisible {
+                    SignUpButoonView()
+                }
                 Spacer()
             }
-            UploadPhotoView()
-            SignUpButoonView()
-            Spacer()
+            .frame(
+                maxWidth: 400,
+                maxHeight: geometry.size.height - keyboardResponder.keyboardHeight
+            )
+            .padding()
         }
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 

@@ -10,12 +10,13 @@ import SwiftUI
 
 public enum Colors  {
     
-    static let primaryColor = Color(red: 224/255, green:  224/255, blue: 65/255, opacity: 1)
+    static let primaryColor = Color(red: 224/255, green:  224/255, blue: 65/255, opacity: 1) //yellow
     static let primaryDarkColor = Color(red: 225/255, green:  199/255, blue: 0, opacity: 1)
     static let secondaryColor = Color(red: 224/255, green:  224/255, blue: 65/255, opacity: 1)
     static let secondaryDarkColor = Color(red: 225/255, green:  199/255, blue: 0, opacity: 1)
     static let thirdColor = Color(red: 248/255, green:  248/255, blue: 248/255, opacity: 1)
     static let thirdDarkColor = Color(red: 222/255, green:  222/255, blue: 222/255, opacity: 1)
+    static let whiteColor = Color(red: 255/255, green:  255/255, blue: 255/255, opacity: 1)
 
     
     static let blackColor = Color(red: 0.1, green:  0.1, blue: 0.1, opacity: 1)
@@ -26,7 +27,6 @@ public enum Colors  {
    
     static let hideColor = Color(red: 222/225, green:  222/225, blue: 222/225, opacity: 1)
 
-    static let whiteColor = Color(red: 224/225, green:  224/225, blue: 65/226, opacity: 1)
     
     
     
