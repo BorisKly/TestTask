@@ -27,28 +27,13 @@ public enum Colors  {
    
     static let hideColor = Color(red: 222/225, green:  222/225, blue: 222/225, opacity: 1)
 
+    // use ColorScheme
     
-    
-    
-    static let backgroundColor = Color(red: 0.867, green: 0.969, blue: 0.957, opacity: 1)
-    static let accentColor = Color(red: 225/225, green:  199/225, blue: 0, opacity: 1)
-    static let textColor = Color(red: 225/225, green:  199/225, blue: 0, opacity: 1)
-
-//    static let pinkColor = UIColor(red: 1, green: 0.196, blue: 0.816, alpha: 1)
-//    static let mintColor = UIColor(red: 0.63, green: 0.89, blue: 0.72, alpha: 1)
-//    static let orangeColor = UIColor(red: 1, green: 0.65, blue: 0, alpha: 1)
-//    static let coralColor = UIColor(red: 1, green: 0.5, blue: 0.32, alpha: 1)
-//
-//
-//    // additional Colors
-//
-//    static let colorWhite = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-//    static let colorBlack = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-//    static let colorYellow = UIColor(red: 1, green: 1, blue: 0, alpha: 1)
-//    static let colorGray = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
-//
-//    static let textColorWhiteYellow = UIColor(red: 0.945, green: 0.996, blue: 0.917, alpha: 1)
-//
-//    static let textColorWhiteGray = UIColor(red: 0.99, green: 0.99, blue: 0.99, alpha: 1)
-//
+//      static let primaryColorLight = Color(red: 224/255, green: 224/255, blue: 65/255, opacity: 1) // Yellow (Light mode)
+//      static let primaryColorDark = Color(red: 225/255, green: 199/255, blue: 0, opacity: 1) // Darker Yellow (Dark mode)
+//      
+//      // Метод для отримання динамічного кольору залежно від поточного режиму
+//      static func primaryColor(for colorScheme: ColorScheme) -> Color {
+//          return colorScheme == .dark ? primaryColorDark : primaryColorLight
+//      }
 }

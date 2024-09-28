@@ -17,23 +17,51 @@ struct UsersListView: View {
                 NoUsersView()
             } else {
                 NavigationStack {
-                    List(viewModel.users) { user in
-                        NavigationLink {
-                            UserDetailView(user:user)
-                        } label: {
-                            UserView(user: user)
+                    GeometryReader { geometry in
+                        HStack(spacing: 2) {
+                            VStack(spacing: 0) {
+                                Rectangle()
+                                    .fill(Color.gray)
+                                    .frame(width: 5, height: viewModel.calculateIndicatorHeight(geometry: geometry))
+                                    .padding(.trailing, 4)
+                                Rectangle()
+                                    .fill(Color.gray.opacity(0.5))
+                                    .frame(width: 5)
+                                    .padding(.trailing, 4)
+                                Spacer()
+                            }
+                            LazyVStack(alignment: .leading, spacing: 2)  {
+                                Section {
+                                    ForEach(viewModel.users) { user in
+                                        styledUserView(for: user, height: geometry.size.height)
+                                    }
+                                }
+                            }
+                            .frame(height: geometry.size.height)
                         }
-                        .buttonStyle(PlainButtonStyle())
+                        .gesture(
+                            DragGesture()
+                                .onEnded { value in
+                                    if value.translation.height < 0 {
+                                        viewModel.nextPage()
+                                    } else if value.translation.height > 0 {
+                                        viewModel.previousPage()
+                                    }
+                                }
+                        )
                     }
-                    .navigationTitle("Users")
-                }            }
-        }.onAppear {
-            viewModel.fetchUsers()
+                }
+                .frame(maxWidth: 600)
+            }
         }
-
+    }
+    private func styledUserView(for user: ResponseUser, height: CGFloat) -> some View {
+            UserView(user: user)
+                .frame(height: (height - CGFloat(viewModel.model.numberOfUsersPerPage + 1) * 2 ) / CGFloat(viewModel.model.numberOfUsersPerPage) )
     }
 }
 
 //#Preview {
 //    UsersListView(users: [User])
 //}
+

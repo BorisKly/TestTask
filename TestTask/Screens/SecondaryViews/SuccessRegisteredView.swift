@@ -26,7 +26,7 @@ struct SuccessRegisteredView: View {
                 HStack {
                     Button("Got it") {
                         mainViewModel.showSuccessRegistrationModal = false
-                        usersListViewModel.fetchUsers()
+                        usersListViewModel.fetchUsers(page: 1)
                         mainViewModel.selectedTab = 0
                     }
                     .customStyle()

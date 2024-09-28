@@ -10,7 +10,7 @@ import SwiftUI
 struct SignUpButoonView: View {
     
     @EnvironmentObject var viewModel: SignUpViewModel
-    
+
     
     var body: some View {
         
@@ -21,12 +21,15 @@ struct SignUpButoonView: View {
                 viewModel.isEmailValid &&
                 viewModel.isPhoneValid &&
                 viewModel.isPhotoValid) {
-                viewModel.registerUser()
+//                viewModel.registerUser()
             } 
+
         } label: {
             Text("Sign up")
         }
         .customStyle()
+     
+        
     }
 }
 

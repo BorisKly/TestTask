@@ -13,7 +13,6 @@ struct MainView: View {
     @EnvironmentObject var usersListViewModel: UsersListViewModel
     @EnvironmentObject var signUpViewModel: SignUpViewModel
 
-
     var body: some View {
         ZStack{
             NavigationStack{
@@ -35,9 +34,10 @@ struct MainView: View {
                     .toolbarBackground(Colors.primaryColor, for: .tabBar)
                 }
                 .toolbar {
-                    HeaderView(title: mainViewModel.selectedTab == 0 ? "Working with GET reques" : "Working with POST reques")
+                        ToolbarItem(placement: .topBarLeading) {
+                            Text(mainViewModel.selectedTab == 0 ? "Working with GET request" : "Working with POST request")
+                        }
                 }
-                .toolbarBackground(.teal, for: .automatic)
                 .toolbarBackground(Colors.primaryColor, for: .navigationBar)
                 .toolbarBackground(.visible, for: .navigationBar)
             }
