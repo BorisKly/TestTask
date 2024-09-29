@@ -21,7 +21,7 @@ struct SignUpButoonView: View {
                 viewModel.isEmailValid &&
                 viewModel.isPhoneValid &&
                 viewModel.isPhotoValid) {
-//                viewModel.registerUser()
+                viewModel.registerUser()
             } 
 
         } label: {

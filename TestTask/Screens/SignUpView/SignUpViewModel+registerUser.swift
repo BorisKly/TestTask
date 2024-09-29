@@ -28,7 +28,7 @@ extension SignUpViewModel {
                 let statusCode = result.statusCode
                 if statusCode == 201 {
                     DispatchQueue.main.async{
-                        self.openSuccessRegisterView = true
+                        self.infoModel = .successRegistered
                         self.resetUser()
                     }
                 }
@@ -44,7 +44,7 @@ extension SignUpViewModel {
                 case .serverError(json: let json, statusCode: let statusCode):
                     if statusCode == 409 {
                         DispatchQueue.main.async{
-                            self.openAlreadyRegisterView = true
+                            self.infoModel = .failRegistered
                         }
                     }
                     if statusCode == 401 {

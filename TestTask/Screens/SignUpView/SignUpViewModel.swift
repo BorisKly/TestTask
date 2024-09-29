@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class SignUpViewModel: ObservableObject {
-    
+        
     @Published var name: String = ""
     @Published var email: String = ""
     @Published var phone: String = "+380"
@@ -17,8 +17,8 @@ class SignUpViewModel: ObservableObject {
     @Published var selectedPhoto: Data? 
     
     @Published var token: String = ""
-    @Published var openSuccessRegisterView = false
-    @Published var openAlreadyRegisterView = false
+    
+    @Published var infoModel: InfoViewEnum?
 
     @Published var isNameValid: Bool = false
     @Published var isEmailValid: Bool = false
@@ -36,11 +36,13 @@ class SignUpViewModel: ObservableObject {
     func validateName() {
         isNameValid = name.count >= 2 && name.count <= 20
     }
+    
     func validateEmail() {
-        let emailPattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}"
-        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailPattern)
+        let emailRegex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         isEmailValid = emailPredicate.evaluate(with: email)
-    }    
+    }
+  
     func validatePhone() {
         let phonePattern = "^\\+380\\d{9}$"
         let phonePredicate = NSPredicate(format: "SELF MATCHES %@", phonePattern)

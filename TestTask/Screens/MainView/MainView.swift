@@ -10,8 +10,6 @@ import SwiftUI
 struct MainView: View {
     
     @EnvironmentObject var mainViewModel: MainViewModel
-    @EnvironmentObject var usersListViewModel: UsersListViewModel
-    @EnvironmentObject var signUpViewModel: SignUpViewModel
 
     var body: some View {
         ZStack{
@@ -35,36 +33,26 @@ struct MainView: View {
                 }
                 .toolbar {
                         ToolbarItem(placement: .topBarLeading) {
-                            Text(mainViewModel.selectedTab == 0 ? "Working with GET request" : "Working with POST request")
+                            Text(mainViewModel.selectedTab == 0 ? "Working with GET request" : "Working with POST request").font(Fonts.primaryFont20)
                         }
                 }
                 .toolbarBackground(Colors.primaryColor, for: .navigationBar)
                 .toolbarBackground(.visible, for: .navigationBar)
             }
-            if mainViewModel.showSuccessRegistrationModal {
-                SuccessRegisteredView()
-                .transition(.move(edge: .bottom))
-            }
-            if mainViewModel.showAlreadyRegisteredModal {
-                AlreadyRegisteredView()
+            if mainViewModel.showInfoViewModal {
+                InfoView(infoModel: mainViewModel.infoModel ?? .internetConnection)
                 .transition(.move(edge: .bottom))
             }
         }
-        .onReceive(signUpViewModel.$openSuccessRegisterView) { status in
-            if status {
-                mainViewModel.showSuccessRegistrationModal = true
-                signUpViewModel.openSuccessRegisterView = false
-            }
-        }
-        .onReceive(signUpViewModel.$openAlreadyRegisterView) { status in
-            if status {
-                mainViewModel.showAlreadyRegisteredModal = true
-                signUpViewModel.openAlreadyRegisterView = false
-            }
+        .onReceive(mainViewModel.$infoModel) { elem in
+            print("elem: \(elem)")
+            if elem != nil {
+                mainViewModel.showInfoViewModal = true }
+            //signUpViewModel.infoModel = nil
         }
     }
 }
 
-#Preview {
-    MainView()
-}
+//#Preview {
+//    MainView()
+//}

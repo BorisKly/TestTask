@@ -10,9 +10,9 @@ import PhotosUI
 
 struct SignUpView: View {
     
+    @EnvironmentObject var mainViewModel: MainViewModel
     @EnvironmentObject var viewModel: SignUpViewModel
-//    @StateObject var keyboardResponder = KeyboardResponder()
-
+    
     var body: some View {
         NavigationStack{
             GeometryReader { geometry in
@@ -34,6 +34,9 @@ struct SignUpView: View {
                 .frame(maxWidth: 600)
 
             }
+        }
+        .onReceive(viewModel.$infoModel) { item in
+            mainViewModel.infoModel = item
         }
     }
 }

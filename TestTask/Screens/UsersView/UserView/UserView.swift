@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct UserView: View {
+    
     @Environment(\.colorScheme) var colorScheme
     
     var user: ResponseUser

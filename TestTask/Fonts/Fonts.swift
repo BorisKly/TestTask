@@ -7,9 +7,10 @@
 
 import SwiftUI
 
+let nunitoSans = "NunitoSans"
+let knewave = "Knewave"
+
 public enum Fonts  {
-    
-    static let primaryFont20 = Font.system(size: 20)
-   
+    static let primaryFont20 = Font.custom(knewave, size: 20)
 
 }

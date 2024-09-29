@@ -18,8 +18,8 @@ class UsersListViewModel: ObservableObject {
     @Published var totalUsers: Int = 0;
     
     init() {
-      users = model.mockUsers
-//       fetchUsers(page: page)
+//      users = model.mockUsers
+       fetchUsers(page: page)
     }
 
     func fetchUsers(page: Int) {

@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct NoUsersView: View {
-    @EnvironmentObject var mainViewModel: MainViewModel
-    @EnvironmentObject var usersListViewModel: UsersListViewModel
     
     var body: some View {
         HStack{

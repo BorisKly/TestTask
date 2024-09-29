@@ -15,6 +15,9 @@ struct UploadPhotoView: View {
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var showConfirmationDialog = false
     @State private var showPhotoPicker = false
+    
+    @State private var showCamera = false
+    @State private var selectedImage: UIImage? = nil
 
     var body: some View {
         VStack{
@@ -37,7 +40,7 @@ struct UploadPhotoView: View {
                     showConfirmationDialog = true
                 }
                 .confirmationDialog("Choose how you want to add a photo", isPresented: $showConfirmationDialog, titleVisibility: .visible) {
-                            Button("Camera") { print("Вибрана опція 1") }
+                            Button("Camera") { showCamera = true }
                             Button("Galery") { showPhotoPicker = true}
                             Button("Cancel", role: .cancel) { }
                         }
@@ -58,6 +61,19 @@ struct UploadPhotoView: View {
                             }
                         }
                     }
+                }
+                .sheet(isPresented: $showCamera) {
+                    ImagePicker(sourceType: .camera, selectedImage: $selectedImage)
+                }
+                .onChange(of: selectedImage) { newImage in
+                    if let image = newImage {
+                            DispatchQueue.main.async {
+                                if let imageData = image.jpegData(compressionQuality: 0.8) {
+                                    viewModel.selectedPhoto = imageData
+                                    viewModel.validatePhoto()
+                                }
+                            }
+                        }
                 }
                 Spacer()
             }

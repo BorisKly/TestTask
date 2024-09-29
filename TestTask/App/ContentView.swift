@@ -13,7 +13,7 @@ struct ContentView: View {
     @StateObject var usersListViewModel = UsersListViewModel()
     @StateObject var mainViewModel = MainViewModel()
     
-    @StateObject private var networkMonitor = NetworkMonitor()
+    @StateObject var networkMonitor = NetworkMonitor()
     
     var body: some View {
         VStack {
@@ -22,8 +22,9 @@ struct ContentView: View {
                     .environmentObject(signUpViewModel)
                     .environmentObject(usersListViewModel)
                     .environmentObject(mainViewModel)
+                    .environmentObject(networkMonitor)
             } else {
-                ConnectionView()
+                InfoView(infoModel: .internetConnection)
             }
         }
     }
