@@ -36,19 +36,19 @@ this will lead to:
 3. easily apply GlobalStyling
 
    
-![Simulator Screenshot - iPhone 15 - 2024-09-30 at 14 46 34](https://github.com/user-attachments/assets/5f1f9ce1-6e08-4b39-8e81-376390a56241)
-![Simulator Screenshot - iPhone 15 - 2024-09-30 at 14 46 36](https://github.com/user-attachments/assets/d5a2e336-da76-4283-81da-ff5818a03cc0)
-![Simulator Screenshot - iPhone 15 - 2024-09-30 at 14 46 41](https://github.com/user-attachments/assets/404533fb-0bcb-4f0a-b52e-66c9277dd570)
+<img width="269" alt="Screenshot 2024-09-22 at 16 31 04" src="https://github.com/user-attachments/assets/5f1f9ce1-6e08-4b39-8e81-376390a56241">
+<img width="269" alt="Screenshot 2024-09-22 at 16 31 04" src="https://github.com/user-attachments/assets/d5a2e336-da76-4283-81da-ff5818a03cc0">
+<img width="269" alt="Screenshot 2024-09-22 at 16 31 04" src="https://github.com/user-attachments/assets/404533fb-0bcb-4f0a-b52e-66c9277dd570">
 
-![Simulator![Simulator Screenshot - iPhone 15 - 2024-09-30 at 14 47 35](https://github.com/user-attachments/assets/98ed4960-3652-430b-a3c3-07891dd19c0c)
-![Screenshot - iPhone 15 - 2024-09-30 at 14 46 51](https://github.com/user-attachments/assets/ae463d1b-1780-4fbb-a304-fd892459243f)
-![Simulator Screenshot - iPhone 15 - 2024-09-30 at 14 48 39](https://github.com/user-attachments/assets/77e2277e-e035-41f3-aaae-305eddc20c04)
+<img width="269" alt="Screenshot 2024-09-22 at 16 31 04" src="https://github.com/user-attachments/assets/98ed4960-3652-430b-a3c3-07891dd19c0c">
+<img width="269" alt="Screenshot 2024-09-22 at 16 31 04" src="https://github.com/user-attachments/assets/ae463d1b-1780-4fbb-a304-fd892459243f">
+<img width="269" alt="Screenshot 2024-09-22 at 16 31 04" src="https://github.com/user-attachments/assets/77e2277e-e035-41f3-aaae-305eddc20c04">
 
-![Simulator Screenshot - iPhone 15 - 2024-09-30 at 14 47 18](https://github.com/user-attachments/assets/f560a39c-ebeb-4790-a2b5-072dcd6ff946)
-![Simulator![Simulator Screenshot - iPhone 15 - 2024-09-30 at 14 49 34](https://github.com/user-attachments/assets/fa46871f-ae88-4a19-822b-e23089d85a8b)
+<img width="269" alt="Screenshot 2024-09-22 at 16 31 04" src="https://github.com/user-attachments/assets/f560a39c-ebeb-4790-a2b5-072dcd6ff946">
+<img width="269" alt="Screenshot 2024-09-22 at 16 31 04" src="https://github.com/user-attachments/assets/fa46871f-ae88-4a19-822b-e23089d85a8b">
 
-![Screenshot - iPhone 15 - 2024-09-30 at 14 49 09](https://github.com/user-attachments/assets/5a14c5d4-53b4-4ea6-931f-8456f10cd667)
-![Simulator Screenshot - iPhone 15 - 2024-09-30 at 14 49 27](https://github.com/user-attachments/assets/e7aa4327-1bbd-46dc-a944-4a5702bf87c2)
+<img width="269" alt="Screenshot 2024-09-22 at 16 31 04" src="https://github.com/user-attachments/assets/5a14c5d4-53b4-4ea6-931f-8456f10cd667">
+<img width="269" alt="Screenshot 2024-09-22 at 16 31 04" src="https://github.com/user-attachments/assets/e7aa4327-1bbd-46dc-a944-4a5702bf87c2">
 
 
 
