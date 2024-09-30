@@ -11,30 +11,34 @@ import SwiftUI
 
 struct InfoView: View {
     
-    var infoModel: InfoViewEnum
-        
     @EnvironmentObject var mainViewModel: MainViewModel
     @EnvironmentObject var usersListViewModel: UsersListViewModel
     @EnvironmentObject var networkMonitor: NetworkMonitor
+    let model = InfoModel()
+    var infoType: InfoViewEnum
 
+    
     var body: some View {
         HStack{
             Spacer()
             VStack(spacing: 20) {
                 Spacer()
-                Image(renderImage(for: infoModel)
+                
+                Image(renderImage(for: infoType)
                 )
                 .resizable()
-                .frame(width: 200, height: 200)
+                .frame(width: model.imageWidth, height: model.imageHeight)
                 
-                Text(renderText(for: infoModel))
+                Text(renderText(for: infoType))
                     .custom20()
+              
                 HStack {
-                    Button(renderButtonTitle(for: infoModel)) {
-                        handleButtonAction(for: infoModel)
+                    Button(renderButtonTitle(for: infoType)) {
+                        handleButtonAction(for: infoType)
                     }
                     .customStyle()
                 }
+                
                 Spacer()
             }
             Spacer()
@@ -90,5 +94,5 @@ struct InfoView: View {
 }
 
 #Preview {
-    InfoView(infoModel: .failRegistered)
+    InfoView(infoType: .failRegistered)
 }

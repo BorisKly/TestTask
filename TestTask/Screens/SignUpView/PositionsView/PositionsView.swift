@@ -16,7 +16,7 @@ struct PositionsView: View {
         HStack{
             VStack(spacing: 0){
                 Text("Select your position")
-                    .font(.headline)
+                    .font(Fonts.primaryFont18)
                 VStack(alignment: .leading, spacing: 16) {
                     ForEach(userPositions, id: \.id) { position in
                         RadioButton(id: position.id, label: position.name, selectedId: $viewModel.selectedId)

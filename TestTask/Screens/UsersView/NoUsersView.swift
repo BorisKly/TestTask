@@ -10,7 +10,7 @@ import SwiftUI
 struct NoUsersView: View {
     
     var body: some View {
-        HStack{
+        VStack{
             Spacer()
             VStack(spacing: 20) {
                 Spacer()
@@ -25,7 +25,6 @@ struct NoUsersView: View {
             Spacer()
         }
         .background(Color.white)
-        .cornerRadius(20)
     }
 }
 

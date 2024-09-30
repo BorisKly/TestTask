@@ -11,7 +11,7 @@ struct UsersListModel {
     
     let numberOfUsersPerPage = 6
     
-    let mockUsers = [ResponseUser(id: 12,
+    let plugUsers = [ResponseUser(id: 12,
                                   name: "Bob",
                                   email: "ferwfvrew@vfervcerf.vvv",
                                   phone: "37463217423",

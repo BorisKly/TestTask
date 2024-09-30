@@ -23,18 +23,9 @@ struct UploadPhotoView: View {
         VStack{
             HStack{
                 Text("Upload your photo")
+                    .font(Fonts.primaryFont18)
+                    .foregroundStyle(Colors.blackColor60)
                     .padding()
-                Spacer()
-                if let imageData = viewModel.selectedPhoto,
-                   let uiImage = UIImage(data: imageData) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 40, height: 40)
-                        .cornerRadius(50)
-                } else {
-                    Text("No Image Selected")
-                }
                 Spacer()
                 Button("Upload") {
                     showConfirmationDialog = true
@@ -78,11 +69,11 @@ struct UploadPhotoView: View {
                 Spacer()
             }
             .cornerRadius(16)
-            .frame(maxWidth: 320)
+            .frame(maxWidth: 360)
             .overlay(
                 RoundedRectangle(cornerRadius: 5)
                     .stroke( (viewModel.selectedPhoto == nil) ?
-                             (viewModel.isSignUpButtonPressed ? .red : Colors.primaryColor) : (viewModel.isPhotoValid ? Colors.primaryColor : .red ),
+                             (viewModel.isSignUpButtonPressed ? Colors.primaryAlertColor : Colors.secondaryLightBrounColor) : (viewModel.isPhotoValid ? Colors.primaryColor : .red ),
                              lineWidth: 1)
             )
             

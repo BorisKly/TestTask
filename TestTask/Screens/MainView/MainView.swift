@@ -11,6 +11,11 @@ struct MainView: View {
     
     @EnvironmentObject var mainViewModel: MainViewModel
 
+    init() {
+        UITabBar.appearance().tintColor = UIColor.red
+        UITabBar.appearance().unselectedItemTintColor = UIColor.gray
+    }
+
     var body: some View {
         ZStack{
             NavigationStack{
@@ -27,28 +32,27 @@ struct MainView: View {
                             }
                             .tag(1)
                     }
-                    .toolbarColorScheme(.light, for: .tabBar)
                     .toolbarBackground(.visible, for: .tabBar)
-                    .toolbarBackground(Colors.primaryColor, for: .tabBar)
+                    .toolbarBackground(Colors.whiteDarkColor, for: .tabBar)
+                    .tint(Colors.secondaryColor)
                 }
                 .toolbar {
                         ToolbarItem(placement: .topBarLeading) {
-                            Text(mainViewModel.selectedTab == 0 ? "Working with GET request" : "Working with POST request").font(Fonts.primaryFont20)
+                            Text(mainViewModel.selectedTab == 0 ? "Working with GET request" : "Working with POST request")
+                                .font(Fonts.primaryFont20)
                         }
                 }
                 .toolbarBackground(Colors.primaryColor, for: .navigationBar)
                 .toolbarBackground(.visible, for: .navigationBar)
             }
             if mainViewModel.showInfoViewModal {
-                InfoView(infoModel: mainViewModel.infoModel ?? .internetConnection)
+                InfoView(infoType: mainViewModel.infoType ?? .internetConnection)
                 .transition(.move(edge: .bottom))
             }
         }
-        .onReceive(mainViewModel.$infoModel) { elem in
-            print("elem: \(elem)")
+        .onReceive(mainViewModel.$infoType) { elem in
             if elem != nil {
                 mainViewModel.showInfoViewModal = true }
-            //signUpViewModel.infoModel = nil
         }
     }
 }

@@ -36,7 +36,7 @@ struct SignUpView: View {
             }
         }
         .onReceive(viewModel.$infoModel) { item in
-            mainViewModel.infoModel = item
+            mainViewModel.infoType = item
         }
     }
 }

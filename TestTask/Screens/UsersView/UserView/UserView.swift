@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct UserView: View {
-    
-    @Environment(\.colorScheme) var colorScheme
-    
+        
     var user: ResponseUser
     
     var body: some View {
@@ -37,10 +35,21 @@ struct UserView: View {
                     .frame(maxWidth: 50, maxHeight: 50)
                     .clipShape(RoundedRectangle(cornerRadius: 50))
                     VStack (alignment: .leading){
-                        Text(user.name).font(.title)
-                        Text(user.position).font(.footnote)
-                        Text(user.email).font(.footnote)
-                        Text(user.phone).font(.footnote)
+                        Text(user.name)
+                            .font(Fonts.primaryFont18)
+                            .foregroundStyle(Colors.blackColor87)
+                        Spacer()
+                        Text(user.position)
+                            .font(Fonts.primaryFont14)
+                            .foregroundStyle(Colors.blackColor60)
+                        Spacer()
+                        Text(user.email)
+                            .font(Fonts.primaryFont14)
+                            .foregroundStyle(Colors.blackColor87)
+                        Spacer()
+                        Text(user.phone.formatPhoneNumber())
+                            .font(Fonts.primaryFont14)
+                            .foregroundStyle(Colors.blackColor87)
                     }
                 }
                 Spacer()
@@ -48,6 +57,7 @@ struct UserView: View {
             Spacer()
         }.background(Colors.whiteColor)
     }
+    
 }
 
 //#Preview {

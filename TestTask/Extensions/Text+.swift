@@ -8,12 +8,13 @@
 import SwiftUI
 
 extension Text {
+    
     func footnoteRedStyle() -> some View {
         self
             .font(.footnote)
-            .foregroundStyle(.red)
+            .foregroundStyle(Colors.primaryAlertColor)
     }
-    
+
     func custom20() -> some View {
         self
             .font(Fonts.primaryFont20)

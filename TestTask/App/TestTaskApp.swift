@@ -18,7 +18,6 @@ struct TestTaskApp: App {
    
     @State private var isActive = false
 
-    
     var body: some Scene {
         WindowGroup {
             if isActive {
@@ -28,7 +27,7 @@ struct TestTaskApp: App {
                     .environmentObject(usersListViewModel)
                     .environmentObject(mainViewModel)
             } else {
-                SplashScreenView()
+                SplashView()
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             withAnimation {

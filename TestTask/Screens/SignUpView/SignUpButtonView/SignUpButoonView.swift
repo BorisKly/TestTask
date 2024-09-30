@@ -26,6 +26,8 @@ struct SignUpButoonView: View {
 
         } label: {
             Text("Sign up")
+                .foregroundStyle(Colors.blackColor87)
+                .font(Fonts.primaryFont18)
         }
         .customStyle()
      

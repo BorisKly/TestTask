@@ -27,7 +27,7 @@ struct TextFieldsGroupView: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 5)
                             .stroke( (viewModel.name.isEmpty) ?
-                                     (viewModel.isSignUpButtonPressed ? .red : Colors.primaryColor) : (viewModel.isNameValid ? Colors.primaryColor : .red ),
+                                     (viewModel.isSignUpButtonPressed ? Colors.primaryAlertColor : Colors.secondaryLightBrounColor) : (viewModel.isNameValid ? Colors.primaryColor : .red ),
                                      lineWidth: 1)
                     )
                     .keyboardType(.default)
@@ -58,11 +58,11 @@ struct TextFieldsGroupView: View {
             VStack{
                 TextField("Email", text: $viewModel.email)
                     .customStyle()
-                    .foregroundColor(viewModel.isEmailValid ? Colors.primaryColor : .red)
+                    .foregroundColor(viewModel.isEmailValid ? Colors.primaryColor : Colors.primaryAlertColor)
                     .overlay(
                         RoundedRectangle(cornerRadius: 5)
                             .stroke( (viewModel.email.isEmpty) ?
-                                     (viewModel.isSignUpButtonPressed ? .red : Colors.primaryColor) : (viewModel.isEmailValid ? Colors.primaryColor : .red ),
+                                     (viewModel.isSignUpButtonPressed ? .red : Colors.secondaryLightBrounColor) : (viewModel.isEmailValid ? Colors.primaryColor : .red ),
                                      lineWidth: 1)
                     )
                     .keyboardType(.emailAddress)
@@ -94,11 +94,11 @@ struct TextFieldsGroupView: View {
                 VStack{
                     TextField("Phone", text: $viewModel.phone)
                         .customStyle()
-                        .foregroundColor((viewModel.phone == "+380" || viewModel.isPhoneValid ) ? Colors.primaryColor : .red)
+                        .foregroundColor((viewModel.phone == "+380" || viewModel.isPhoneValid ) ? Colors.primaryColor : Colors.primaryAlertColor)
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
                                 .stroke( (viewModel.phone == "+380") ?
-                                         (viewModel.isSignUpButtonPressed ? .red : Colors.primaryColor) : (viewModel.isPhoneValid ? Colors.primaryColor : .red ),
+                                         (viewModel.isSignUpButtonPressed ? Colors.primaryAlertColor : Colors.secondaryLightBrounColor) : (viewModel.isPhoneValid ? Colors.primaryColor : .red ),
                                          lineWidth: 1)
                         )
                         .keyboardType(.default)

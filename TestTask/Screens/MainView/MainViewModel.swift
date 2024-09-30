@@ -11,7 +11,7 @@ class MainViewModel: ObservableObject {
     
     @Published  var selectedTab = 0
     
-    @Published var infoModel: InfoViewEnum?
+    @Published var infoType: InfoViewEnum?
     @Published var showInfoViewModal = false
 
 }

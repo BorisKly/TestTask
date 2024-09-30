@@ -21,7 +21,8 @@ struct RadioButton: View {
                 Image(systemName: self.selectedId == id ? "smallcircle.fill.circle.fill" : "circle")
                     .foregroundColor(self.selectedId == id ? .blue : .gray)
                 Text(label)
-                    .foregroundColor(.primary)
+                    .foregroundColor(Colors.blackColor87)
+                    .font(Fonts.primaryFont16)
             }
         }
         .buttonStyle(PlainButtonStyle()) 

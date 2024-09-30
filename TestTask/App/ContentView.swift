@@ -16,7 +16,7 @@ struct ContentView: View {
             if networkMonitor.isConnected {
                 MainView()
             } else {
-                InfoView(infoModel: .internetConnection)
+                InfoView(infoType: .internetConnection)
             }
         }
     }

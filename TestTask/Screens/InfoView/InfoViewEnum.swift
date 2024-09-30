@@ -8,9 +8,7 @@
 import Foundation
 
 enum InfoViewEnum {
-    
     case internetConnection
     case successRegistered
     case failRegistered
-    
 }
