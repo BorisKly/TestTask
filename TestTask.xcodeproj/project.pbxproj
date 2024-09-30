@@ -43,13 +43,10 @@
 		E4A3040E2CA5C5C2006978A9 /* KeyboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A3040D2CA5C5C2006978A9 /* KeyboardResponse.swift */; };
 		E4A304102CA7338F006978A9 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A3040F2CA7338F006978A9 /* Fonts.swift */; };
 		E4A304122CA73534006978A9 /* NoUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A304112CA73534006978A9 /* NoUsersView.swift */; };
-		E4F221AA2CA9225900C43D4B /* Knewave.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4F221A92CA9225900C43D4B /* Knewave.ttf */; };
 		E4F221AC2CA9228F00C43D4B /* NunitoSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4F221AB2CA9228F00C43D4B /* NunitoSans.ttf */; };
 		E4F221B42CA94D5900C43D4B /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F221B32CA94D5900C43D4B /* InfoView.swift */; };
 		E4F221BC2CA9976900C43D4B /* Tet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F221BB2CA9976900C43D4B /* Tet.swift */; };
-		E4F221BE2CA9A49A00C43D4B /* InfoSuccessRegImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F221BD2CA9A49A00C43D4B /* InfoSuccessRegImage.swift */; };
 		E4F221C22CA9A51400C43D4B /* InfoViewEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F221C12CA9A51400C43D4B /* InfoViewEnum.swift */; };
-		E4F221C42CA9A52E00C43D4B /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F221C32CA9A52E00C43D4B /* InfoModel.swift */; };
 		E4FA3EE42CA7DA3200A632F4 /* UsersListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FA3EE32CA7DA3200A632F4 /* UsersListModel.swift */; };
 		E4FA3EE82CA8824A00A632F4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FA3EE72CA8824A00A632F4 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
@@ -92,13 +89,10 @@
 		E4A3040D2CA5C5C2006978A9 /* KeyboardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponse.swift; sourceTree = "<group>"; };
 		E4A3040F2CA7338F006978A9 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		E4A304112CA73534006978A9 /* NoUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoUsersView.swift; sourceTree = "<group>"; };
-		E4F221A92CA9225900C43D4B /* Knewave.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Knewave.ttf; sourceTree = "<group>"; };
 		E4F221AB2CA9228F00C43D4B /* NunitoSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NunitoSans.ttf; sourceTree = "<group>"; };
 		E4F221B32CA94D5900C43D4B /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		E4F221BB2CA9976900C43D4B /* Tet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tet.swift; sourceTree = "<group>"; };
-		E4F221BD2CA9A49A00C43D4B /* InfoSuccessRegImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSuccessRegImage.swift; sourceTree = "<group>"; };
 		E4F221C12CA9A51400C43D4B /* InfoViewEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewEnum.swift; sourceTree = "<group>"; };
-		E4F221C32CA9A52E00C43D4B /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
 		E4FA3EE32CA7DA3200A632F4 /* UsersListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListModel.swift; sourceTree = "<group>"; };
 		E4FA3EE72CA8824A00A632F4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E4FA3EE92CA882DC00A632F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -137,6 +131,7 @@
 				E4A303F92CA52C42006978A9 /* Services */,
 				E4712ACA2CA28CD6004437E4 /* App */,
 				E4A303FA2CA52CD5006978A9 /* Screens */,
+				E4712ACD2CA28E75004437E4 /* SplashScreenView.swift */,
 				E4712B152CA41635004437E4 /* Model */,
 				E4712ACF2CA29328004437E4 /* Extensions */,
 				E4712AD72CA295F8004437E4 /* Utils */,
@@ -162,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				E4712ABC2CA28BD1004437E4 /* TestTaskApp.swift */,
-				E4712ACD2CA28E75004437E4 /* SplashScreenView.swift */,
 				E4712ABE2CA28BD1004437E4 /* ContentView.swift */,
 			);
 			path = App;
@@ -200,7 +194,6 @@
 		E4712AD32CA29360004437E4 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				E4F221A92CA9225900C43D4B /* Knewave.ttf */,
 				E4F221AB2CA9228F00C43D4B /* NunitoSans.ttf */,
 				E4A3040F2CA7338F006978A9 /* Fonts.swift */,
 			);
@@ -328,8 +321,6 @@
 			children = (
 				E4F221B32CA94D5900C43D4B /* InfoView.swift */,
 				E4F221C12CA9A51400C43D4B /* InfoViewEnum.swift */,
-				E4F221BD2CA9A49A00C43D4B /* InfoSuccessRegImage.swift */,
-				E4F221C32CA9A52E00C43D4B /* InfoModel.swift */,
 			);
 			path = InfoView;
 			sourceTree = "<group>";
@@ -404,7 +395,6 @@
 			files = (
 				E4712AC42CA28BD2004437E4 /* Preview Assets.xcassets in Resources */,
 				E4712AC12CA28BD2004437E4 /* Assets.xcassets in Resources */,
-				E4F221AA2CA9225900C43D4B /* Knewave.ttf in Resources */,
 				E4F221AC2CA9228F00C43D4B /* NunitoSans.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,7 +410,6 @@
 				E4FA3EE82CA8824A00A632F4 /* ImagePicker.swift in Sources */,
 				E4712AEC2CA2A2C0004437E4 /* NetworkService.swift in Sources */,
 				E4712B142CA3F98A004437E4 /* SignUpButoonView.swift in Sources */,
-				E4F221BE2CA9A49A00C43D4B /* InfoSuccessRegImage.swift in Sources */,
 				E4712AF02CA2AA85004437E4 /* UsersResponseData.swift in Sources */,
 				E4712B062CA2EBCE004437E4 /* SignUpViewModel.swift in Sources */,
 				E4712B1F2CA45521004437E4 /* View+.swift in Sources */,
@@ -437,7 +426,6 @@
 				E4A303FF2CA533A3006978A9 /* SignUpViewModel+fetchToken.swift in Sources */,
 				E4712ABD2CA28BD1004437E4 /* TestTaskApp.swift in Sources */,
 				E4712B0A2CA33427004437E4 /* Colors.swift in Sources */,
-				E4F221C42CA9A52E00C43D4B /* InfoModel.swift in Sources */,
 				E4712B212CA4568D004437E4 /* Data+.swift in Sources */,
 				E4F221B42CA94D5900C43D4B /* InfoView.swift in Sources */,
 				E4712B022CA2E340004437E4 /* RadioButton.swift in Sources */,

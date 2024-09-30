@@ -22,7 +22,8 @@ public enum Colors  {
     static let primaryAlertColor = Color(red: 255/255, green:  77/255, blue: 77/255, opacity: 1) //red
 
  
-    static let blackColor87 = Color(red: 0/225, green:  0/225, blue: 0/225, opacity: 0.87)
+    static let blackColor87 = Color(red: 0/255, green:  0/255, blue: 0/255, opacity: 0.87)
+    static let whiteColor = Color(red: 255/255, green:  255/255, blue: 255/255, opacity: 1)
 
     
     
@@ -31,19 +32,6 @@ public enum Colors  {
    
     static let thirdColor = Color(red: 248/255, green:  248/255, blue: 248/255, opacity: 1)
     static let thirdDarkColor = Color(red: 222/255, green:  222/255, blue: 222/255, opacity: 1)
-    
-    static let whiteColor = Color(red: 255/255, green:  255/255, blue: 255/255, opacity: 1)
-
-    
-    static let blackColor = Color(red: 0.1, green:  0.1, blue: 0.1, opacity: 1)
-    static let blackColor60 = Color(red: 224/225, green:  224/225, blue: 65/225, opacity: 1)
-    static let blackColor48 = Color(red: 224/225, green:  224/225, blue: 65/225, opacity: 1)
-
-    static let errorColor = Color(red: 224/225, green:  224/225, blue: 65/226, opacity: 1)
-   
-    static let hideColor = Color(red: 222/225, green:  222/225, blue: 222/225, opacity: 1)
-
-    // use ColorScheme
     
 //      static let primaryColorLight = Color(red: 224/255, green: 224/255, blue: 65/255, opacity: 1) // Yellow (Light mode)
 //      static let primaryColorDark = Color(red: 225/255, green: 199/255, blue: 0, opacity: 1) // Darker Yellow (Dark mode)

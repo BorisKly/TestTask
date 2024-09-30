@@ -9,23 +9,38 @@ import Foundation
 import Network
 
 class NetworkMonitor: ObservableObject {
-    private var monitor: NWPathMonitor
-    private var queue: DispatchQueue
+  
     @Published var isConnected: Bool = true
+    private var monitor: NWPathMonitor
+    private let queue = DispatchQueue(label: "NetworkMonitorQueue")
+
+    private var timer: Timer? = nil
 
     init() {
         monitor = NWPathMonitor()
-        queue = DispatchQueue.global(qos: .background)
+        startMonitoring()
+    }
+    
+    func startMonitoring() {
+        print(#function)
         monitor.pathUpdateHandler = { path in
             DispatchQueue.main.async {
                 self.isConnected = path.status == .satisfied
+                print("Network status changed: \(self.isConnected)")
             }
         }
         monitor.start(queue: queue)
     }
     
     func checkConnection() {
-        // Можна примусово перевірити з'єднання
-        monitor.pathUpdateHandler?(monitor.currentPath)
+        let path = monitor.currentPath
+        DispatchQueue.main.async {
+            self.isConnected = path.status == .satisfied
+        }
+        print(isConnected)
+    }
+    
+    func isNetworkAvailable() -> Bool {
+        return isConnected
     }
 }

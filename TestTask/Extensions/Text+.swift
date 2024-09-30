@@ -17,7 +17,7 @@ extension Text {
     func custom20() -> some View {
         self
             .font(Fonts.primaryFont20)
-            .foregroundStyle(Colors.blackColor)
+            .foregroundStyle(Colors.blackColor87)
     }
   
 }

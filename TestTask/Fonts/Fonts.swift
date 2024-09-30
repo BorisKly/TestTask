@@ -11,6 +11,6 @@ let nunitoSans = "NunitoSans"
 let knewave = "Knewave"
 
 public enum Fonts  {
-    static let primaryFont20 = Font.custom(knewave, size: 20)
+    static let primaryFont20 = Font.custom(nunitoSans, size: 20)
 
 }

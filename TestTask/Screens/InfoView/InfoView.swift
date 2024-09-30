@@ -39,8 +39,7 @@ struct InfoView: View {
             }
             Spacer()
         }
-        .background(Color.white)
-        .cornerRadius(20)
+        .background(Colors.whiteColor)
     }
     
     private func renderImage(for model: InfoViewEnum) -> String {
@@ -78,7 +77,7 @@ struct InfoView: View {
     private func handleButtonAction(for model: InfoViewEnum) {
            switch model {
            case .internetConnection:
-               print("check internet")
+               networkMonitor.checkConnection()
            case .successRegistered:
                mainViewModel.showInfoViewModal = false
                usersListViewModel.fetchUsers(page: 1)
@@ -89,7 +88,7 @@ struct InfoView: View {
        }
     
 }
-//
-//#Preview {
-//    InfoView()
-//}
+
+#Preview {
+    InfoView(infoModel: .failRegistered)
+}

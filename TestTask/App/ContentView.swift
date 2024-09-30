@@ -9,20 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var signUpViewModel = SignUpViewModel()
-    @StateObject var usersListViewModel = UsersListViewModel()
-    @StateObject var mainViewModel = MainViewModel()
-    
-    @StateObject var networkMonitor = NetworkMonitor()
+    @EnvironmentObject var networkMonitor: NetworkMonitor
     
     var body: some View {
         VStack {
             if networkMonitor.isConnected {
                 MainView()
-                    .environmentObject(signUpViewModel)
-                    .environmentObject(usersListViewModel)
-                    .environmentObject(mainViewModel)
-                    .environmentObject(networkMonitor)
             } else {
                 InfoView(infoModel: .internetConnection)
             }
