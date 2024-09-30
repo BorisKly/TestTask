@@ -32,7 +32,6 @@ struct SignUpView: View {
                 }
                 .padding()
                 .frame(maxWidth: 600)
-
             }
         }
         .onReceive(viewModel.$infoModel) { item in

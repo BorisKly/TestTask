@@ -11,7 +11,7 @@ extension Text {
     
     func footnoteRedStyle() -> some View {
         self
-            .font(.footnote)
+            .font(Fonts.primaryFont14)
             .foregroundStyle(Colors.primaryAlertColor)
     }
 

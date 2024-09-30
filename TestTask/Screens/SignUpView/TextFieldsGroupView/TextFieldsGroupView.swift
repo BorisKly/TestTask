@@ -23,21 +23,18 @@ struct TextFieldsGroupView: View {
             VStack{
                 TextField("Your name", text: $viewModel.name)
                     .customStyle()
-                    .foregroundColor(viewModel.isNameValid ? Colors.primaryColor : .yellow)
+                    .foregroundStyle(Colors.blackColor87)
                     .overlay(
                         RoundedRectangle(cornerRadius: 5)
-                            .stroke( (viewModel.name.isEmpty) ?
-                                     (viewModel.isSignUpButtonPressed ? Colors.primaryAlertColor : Colors.secondaryLightBrounColor) : (viewModel.isNameValid ? Colors.primaryColor : .red ),
+                            .stroke( (viewModel.name.isEmpty) 
+                                     ?(viewModel.isSignUpButtonPressed ? Colors.primaryAlertColor : Colors.secondaryLightBrounColor)
+                                     : (viewModel.isNameValid ? Colors.primaryColor : Colors.primaryAlertColor ),
                                      lineWidth: 1)
                     )
                     .keyboardType(.default)
                     .submitLabel(.done)
                     .focused($focusedField, equals: .name)
-                    .onChange(of: viewModel.name) { newValue in
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: viewModel.validateName)
-                    }
                     .onSubmit {
-                        viewModel.validateName()
                         if viewModel.isNameValid {
                             focusedField = .email
                         }
@@ -58,21 +55,19 @@ struct TextFieldsGroupView: View {
             VStack{
                 TextField("Email", text: $viewModel.email)
                     .customStyle()
-                    .foregroundColor(viewModel.isEmailValid ? Colors.primaryColor : Colors.primaryAlertColor)
+                    .foregroundColor(Colors.blackColor87)
                     .overlay(
                         RoundedRectangle(cornerRadius: 5)
-                            .stroke( (viewModel.email.isEmpty) ?
-                                     (viewModel.isSignUpButtonPressed ? .red : Colors.secondaryLightBrounColor) : (viewModel.isEmailValid ? Colors.primaryColor : .red ),
-                                     lineWidth: 1)
+                            .stroke( (viewModel.email.isEmpty) 
+                                     ? (viewModel.isSignUpButtonPressed ? Colors.primaryAlertColor: Colors.secondaryLightBrounColor)
+                                     : (viewModel.isEmailValid ? Colors.primaryColor : Colors.primaryAlertColor),
+                                     lineWidth: 1
+                                   )
                     )
                     .keyboardType(.emailAddress)
                     .submitLabel(.done)
                     .focused($focusedField, equals: .email)
-                    .onChange(of: viewModel.email) { newValue in
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: viewModel.validateEmail)
-                    }
                     .onSubmit {
-                        viewModel.validateEmail()
                         if viewModel.isEmailValid {
                             focusedField = .phone
                         }
@@ -90,25 +85,24 @@ struct TextFieldsGroupView: View {
                     }
                 }
             }
+            
             VStack{
                 VStack{
                     TextField("Phone", text: $viewModel.phone)
                         .customStyle()
-                        .foregroundColor((viewModel.phone == "+380" || viewModel.isPhoneValid ) ? Colors.primaryColor : Colors.primaryAlertColor)
+                        .foregroundColor(Colors.blackColor87)
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
-                                .stroke( (viewModel.phone == "+380") ?
-                                         (viewModel.isSignUpButtonPressed ? Colors.primaryAlertColor : Colors.secondaryLightBrounColor) : (viewModel.isPhoneValid ? Colors.primaryColor : .red ),
-                                         lineWidth: 1)
+                                .stroke( (viewModel.phone == "+380") 
+                                         ?(viewModel.isSignUpButtonPressed ? Colors.primaryAlertColor : Colors.secondaryLightBrounColor)
+                                         : (viewModel.isPhoneValid ? Colors.primaryColor : Colors.primaryAlertColor),
+                                         lineWidth: 1
+                                       )
                         )
                         .keyboardType(.default)
                         .submitLabel(.done)
                         .focused($focusedField, equals: .phone)
-                        .onChange(of: viewModel.phone) { newValue in
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: viewModel.validatePhone)
-                        }
                         .onSubmit {
-                            viewModel.validatePhone()
                             if viewModel.isPhoneValid {
                                 focusedField = nil
                             }

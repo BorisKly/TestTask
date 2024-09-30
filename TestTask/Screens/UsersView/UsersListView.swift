@@ -30,14 +30,16 @@ struct UsersListView: View {
                                     .padding(.trailing, 4)
                                 Spacer()
                             }
-                            LazyVStack(alignment: .leading, spacing: 2)  {
-                                Section {
-                                    ForEach(viewModel.users) { user in
-                                        styledUserView(for: user, height: geometry.size.height)
+                            withAnimation(.easeInOut) {
+                                LazyVStack(alignment: .leading, spacing: 2)  {
+                                    Section {
+                                        ForEach(viewModel.users) { user in
+                                            styledUserView(for: user, height: geometry.size.height)
+                                        }
                                     }
                                 }
+                                .frame(height: geometry.size.height)
                             }
-                            .frame(height: geometry.size.height)
                         }
                         .gesture(
                             DragGesture()
