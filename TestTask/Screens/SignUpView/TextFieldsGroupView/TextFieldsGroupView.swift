@@ -34,6 +34,11 @@ struct TextFieldsGroupView: View {
                     .keyboardType(.default)
                     .submitLabel(.done)
                     .focused($focusedField, equals: .name)
+                    .onReceive(viewModel.$name){ _ in
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            viewModel.validateName()
+                        }
+                    }
                     .onSubmit {
                         if viewModel.isNameValid {
                             focusedField = .email
@@ -67,6 +72,11 @@ struct TextFieldsGroupView: View {
                     .keyboardType(.emailAddress)
                     .submitLabel(.done)
                     .focused($focusedField, equals: .email)
+                    .onReceive(viewModel.$email) { _ in
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            viewModel.validateEmail()
+                        }
+                    }
                     .onSubmit {
                         if viewModel.isEmailValid {
                             focusedField = .phone
@@ -102,6 +112,11 @@ struct TextFieldsGroupView: View {
                         .keyboardType(.default)
                         .submitLabel(.done)
                         .focused($focusedField, equals: .phone)
+                        .onReceive(viewModel.$phone){ _ in
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                viewModel.validatePhone()
+                            }
+                        }
                         .onSubmit {
                             if viewModel.isPhoneValid {
                                 focusedField = nil

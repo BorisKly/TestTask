@@ -44,6 +44,10 @@ struct InfoView: View {
             Spacer()
         }
         .background(Colors.whiteColor)
+        .onDisappear {
+            mainViewModel.infoType = nil
+            mainViewModel.showInfoViewModal = false
+        }
     }
     
     private func renderImage(for model: InfoViewEnum) -> String {
@@ -80,12 +84,16 @@ struct InfoView: View {
     
     private func handleButtonAction(for model: InfoViewEnum) {
            switch model {
+               
            case .internetConnection:
+               mainViewModel.showInfoViewModal = false
                networkMonitor.checkConnection()
+               
            case .successRegistered:
                mainViewModel.showInfoViewModal = false
                usersListViewModel.fetchUsers(page: 1)
                mainViewModel.selectedTab = 0
+               
            case .failRegistered:
                mainViewModel.showInfoViewModal = false
            }

@@ -46,8 +46,10 @@ struct MainView: View {
                 .toolbarBackground(.visible, for: .navigationBar)
             }
             if mainViewModel.showInfoViewModal {
-                InfoView(infoType: mainViewModel.infoType ?? .internetConnection)
-                .transition(.move(edge: .bottom))
+                withAnimation(.easeInOut){
+                    InfoView(infoType: mainViewModel.infoType ?? .internetConnection)
+                    .transition(.move(edge: .bottom))
+                }
             }
         }
         .onReceive(mainViewModel.$infoType) { elem in

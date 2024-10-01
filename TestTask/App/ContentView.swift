@@ -14,9 +14,13 @@ struct ContentView: View {
     var body: some View {
         VStack {
             if networkMonitor.isConnected {
-                MainView()
+                withAnimation(.easeInOut) {
+                    MainView()
+                }
             } else {
-                InfoView(infoType: .internetConnection)
+                withAnimation(.easeInOut) {
+                    InfoView(infoType: .internetConnection)
+                }
             }
         }
     }

@@ -10,6 +10,8 @@ import Foundation
 extension SignUpViewModel {
     
     func registerUser() {
+        isLoading = true
+
         let boundary = UUID().uuidString
         let userData = UserData(name: name,
                                 email: email,
@@ -21,6 +23,7 @@ extension SignUpViewModel {
         NetworkService.shared.postUser(data: ["body" : requestBody],
                                        settings: ["token": token],
                                        boundary: boundary) { result in
+            self.isLoading = false
             switch result {
             case .success(let result):
                 let json = result.json

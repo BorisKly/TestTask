@@ -20,15 +20,22 @@ struct SignUpView: View {
                     Spacer()
                     TextFieldsGroupView()
                     Spacer()
-                    HStack{
-                        PositionsView()
-                        Spacer()
+                    ZStack{
+                        HStack{
+                            PositionsView()
+                            Spacer()
+                        }
+                        if viewModel.isLoading {
+                            ProgressView()
+                        }
                     }
                     Spacer()
                     UploadPhotoView()
+                    
                     Spacer()
                     SignUpButoonView()
                     Spacer()
+                    
                 }
                 .padding()
                 .frame(maxWidth: 600)

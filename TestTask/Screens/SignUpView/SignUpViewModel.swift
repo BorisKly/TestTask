@@ -10,22 +10,10 @@ import SwiftUI
 
 class SignUpViewModel: ObservableObject {
         
-    @Published var name: String = ""{
-        didSet {
-            validateName() 
-        }
-    }
-    @Published var email: String = ""{
-        didSet {
-            validateEmail()
-        }
-    }
+    @Published var name: String = ""
+    @Published var email: String = ""
     @Published var phone: String = "+380"
-    {
-        didSet {
-            validatePhone()
-        }
-    }
+    
     @Published var selectedPhoto: Data?{
         didSet {
             validatePhone()
@@ -44,6 +32,8 @@ class SignUpViewModel: ObservableObject {
     @Published var isPhotoValid: Bool = false
 
     @Published var isSignUpButtonPressed = false
+    
+    @Published var isLoading = false
     
     private var validationWorkItem: DispatchWorkItem?
     
